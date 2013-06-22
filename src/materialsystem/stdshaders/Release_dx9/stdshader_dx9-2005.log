@@ -1,0 +1,78 @@
+﻿Build started 6/16/2013 9:42:47 PM.
+     1>Project "C:\SourceSDK.Source_Code\Delta36\src\materialsystem\stdshaders\stdshader_dx9-2005.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release_dx9\stdshader_dx9.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\common /I..\..\public /I..\..\public\tier0 /I..\..\public\tier1 /Ifxctmp9 /Ivshtmp9 /I..\..\dx9sdk\include /Zi /nologo /W4 /WX- /O2 /Ob2 /Oi /Ot /Oy- /D WIN32 /D _WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D STDSHADER_DX9_DLL_EXPORT /D FAST_MATERIALVAR_ACCESS /D _WINDLL /D _MBCS /GF /Gm- /MT /GS- /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR /Fo"Release_dx9\\" /Fd"Release_dx9\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt aftershock.cpp aftershock_helper.cpp BaseVSShader.cpp Bloom.cpp cable_dx9.cpp cloak_blended_pass_helper.cpp cloak_dx9_helper.cpp core_dx9.cpp dx8fallbacks.cpp emissive_scroll_blended_pass_helper.cpp eye_refract.cpp eye_refract_helper.cpp eyeball.cpp eyeglint_dx9.cpp eyes.cpp eyes_dx8_dx9_helper.cpp eyes_dx9.cpp flesh_interior_blended_pass_helper.cpp lightmappedgeneric_decal.cpp lightmappedgeneric_dx9_helper.cpp lightmappedreflective.cpp lightmappedtwotexture.cpp refract.cpp refract_dx9_helper.cpp screenspace_general.cpp skin_dx9_helper.cpp spritecard.cpp teeth.cpp unlitgeneric_dx9.cpp unlittwotexture_dx9.cpp vertexlitgeneric_dx9.cpp vertexlitgeneric_dx9_helper.cpp vortwarp_dx9.cpp water.cpp worldtwotextureblend.cpp worldvertexalpha.cpp worldvertextransition.cpp worldvertextransition_dx8_helper.cpp ..\..\tier1\checksum_crc.cpp ..\..\tier1\checksum_md5.cpp ..\shader_dll_verify.cpp
+         aftershock.cpp
+         aftershock_helper.cpp
+         BaseVSShader.cpp
+     1>BaseVSShader.cpp(22): fatal error C1083: Cannot open include file: 'SDK_lightmappedgeneric_flashlight_vs11.inc': No such file or directory
+         Bloom.cpp
+         cable_dx9.cpp
+         cloak_blended_pass_helper.cpp
+         cloak_dx9_helper.cpp
+     1>c:\sourcesdk.source_code\delta36\src\materialsystem\stdshaders\..\shaderapidx9\locald3dtypes.h(57): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+         core_dx9.cpp
+         dx8fallbacks.cpp
+         emissive_scroll_blended_pass_helper.cpp
+     1>emissive_scroll_blended_pass_helper.cpp(93): fatal error C1083: Cannot open include file: 'SDK_emissive_scroll_blended_pass_vs20.inc': No such file or directory
+         eye_refract.cpp
+         eye_refract_helper.cpp
+     1>eye_refract_helper.cpp(9): fatal error C1083: Cannot open include file: 'SDK_eyes_flashlight_vs11.inc': No such file or directory
+         eyeball.cpp
+         eyeglint_dx9.cpp
+     1>eyeglint_dx9.cpp(12): fatal error C1083: Cannot open include file: 'SDK_eyeglint_vs20.inc': No such file or directory
+         eyes.cpp
+         eyes_dx8_dx9_helper.cpp
+     1>eyes_dx8_dx9_helper.cpp(12): fatal error C1083: Cannot open include file: 'SDK_eyes.inc': No such file or directory
+         eyes_dx9.cpp
+         flesh_interior_blended_pass_helper.cpp
+     1>flesh_interior_blended_pass_helper.cpp(127): fatal error C1083: Cannot open include file: 'SDK_flesh_interior_blended_pass_vs20.inc': No such file or directory
+         lightmappedgeneric_decal.cpp
+     1>lightmappedgeneric_decal.cpp(11): fatal error C1083: Cannot open include file: 'SDK_lightmappedgeneric_decal.inc': No such file or directory
+         lightmappedgeneric_dx9_helper.cpp
+     1>lightmappedgeneric_dx9_helper.cpp(13): fatal error C1083: Cannot open include file: 'SDK_lightmappedgeneric_ps20.inc': No such file or directory
+         Generating Code...
+         Compiling...
+         lightmappedreflective.cpp
+     1>lightmappedreflective.cpp(12): fatal error C1083: Cannot open include file: 'SDK_lightmappedreflective_vs20.inc': No such file or directory
+         lightmappedtwotexture.cpp
+         refract.cpp
+         refract_dx9_helper.cpp
+     1>refract_dx9_helper.cpp(11): fatal error C1083: Cannot open include file: 'SDK_refract_vs20.inc': No such file or directory
+         screenspace_general.cpp
+         skin_dx9_helper.cpp
+     1>skin_dx9_helper.cpp(12): fatal error C1083: Cannot open include file: 'SDK_skin_vs20.inc': No such file or directory
+         spritecard.cpp
+     1>spritecard.cpp(13): fatal error C1083: Cannot open include file: 'SDK_spritecard_ps20.inc': No such file or directory
+         teeth.cpp
+     1>teeth.cpp(10): fatal error C1083: Cannot open include file: 'SDK_teeth_vs20.inc': No such file or directory
+         unlitgeneric_dx9.cpp
+         unlittwotexture_dx9.cpp
+     1>unlittwotexture_dx9.cpp(13): fatal error C1083: Cannot open include file: 'SDK_unlittwotexture_vs20.inc': No such file or directory
+         vertexlitgeneric_dx9.cpp
+         vertexlitgeneric_dx9_helper.cpp
+     1>vertexlitgeneric_dx9_helper.cpp(12): fatal error C1083: Cannot open include file: 'SDK_vertexlit_and_unlit_generic_vs20.inc': No such file or directory
+         vortwarp_dx9.cpp
+     1>vortwarp_dx9.cpp(11): fatal error C1083: Cannot open include file: 'SDK_vortwarp_vs20.inc': No such file or directory
+         water.cpp
+     1>water.cpp(13): fatal error C1083: Cannot open include file: 'SDK_watercheap_vs20.inc': No such file or directory
+         worldtwotextureblend.cpp
+     1>worldtwotextureblend.cpp(13): fatal error C1083: Cannot open include file: 'SDK_lightmappedgeneric_vs20.inc': No such file or directory
+         worldvertexalpha.cpp
+     1>worldvertexalpha.cpp(11): fatal error C1083: Cannot open include file: 'SDK_worldvertexalpha.inc': No such file or directory
+         worldvertextransition.cpp
+         worldvertextransition_dx8_helper.cpp
+     1>worldvertextransition_dx8_helper.cpp(11): fatal error C1083: Cannot open include file: 'SDK_worldvertextransition.inc': No such file or directory
+         checksum_crc.cpp
+         checksum_md5.cpp
+         Generating Code...
+         Compiling...
+         shader_dll_verify.cpp
+         Generating Code...
+     1>Done Building Project "C:\SourceSDK.Source_Code\Delta36\src\materialsystem\stdshaders\stdshader_dx9-2005.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:17.84

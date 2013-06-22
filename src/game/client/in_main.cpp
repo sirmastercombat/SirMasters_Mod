@@ -120,6 +120,7 @@ static	kbutton_t	in_break;
 static	kbutton_t	in_zoom;
 static  kbutton_t   in_grenade1;
 static  kbutton_t   in_grenade2;
+static  kbutton_t   in_kick;
 kbutton_t	in_ducktoggle;
 
 /*
@@ -465,6 +466,8 @@ void IN_Grenade1Down( const CCommand &args ) { KeyDown( &in_grenade1, args[1] );
 void IN_Grenade2Up( const CCommand &args ) { KeyUp( &in_grenade2, args[1] ); }
 void IN_Grenade2Down( const CCommand &args ) { KeyDown( &in_grenade2, args[1] ); }
 void IN_XboxStub( const CCommand &args ) { /*do nothing*/ }
+void IN_KickDown( const CCommand &args ) {KeyDown(&in_kick, args[1] );}
+void IN_KickUp( const CCommand &args ) {KeyUp(&in_kick, args[1] );}
 
 void IN_DuckToggle( const CCommand &args ) 
 { 
@@ -1300,6 +1303,7 @@ int CInput::GetButtonBits( int bResetState )
 	CalcButtonBits( bits, IN_ZOOM, s_ClearInputState, &in_zoom, bResetState );
 	CalcButtonBits( bits, IN_GRENADE1, s_ClearInputState, &in_grenade1, bResetState );
 	CalcButtonBits( bits, IN_GRENADE2, s_ClearInputState, &in_grenade2, bResetState );
+	CalcButtonBits( bits, IN_KICK, s_ClearInputState, &in_kick, bResetState );
 
 	if ( KeyState(&in_ducktoggle) )
 	{
@@ -1455,6 +1459,8 @@ static ConCommand endgrenade1( "-grenade1", IN_Grenade1Up );
 static ConCommand startgrenade1( "+grenade1", IN_Grenade1Down );
 static ConCommand endgrenade2( "-grenade2", IN_Grenade2Up );
 static ConCommand startgrenade2( "+grenade2", IN_Grenade2Down );
+static ConCommand endkick( "-kick", IN_KickUp );
+static ConCommand startkick( "+kick", IN_KickDown );
 
 #ifdef TF_CLIENT_DLL
 static ConCommand toggle_duck( "toggle_duck", IN_DuckToggle );

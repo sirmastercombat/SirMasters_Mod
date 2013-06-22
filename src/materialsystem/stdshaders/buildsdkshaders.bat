@@ -4,7 +4,7 @@ setlocal
 rem Use dynamic shaders to build .inc files only
 rem set dynamic_shaders=1
 rem == Setup path to nmake.exe, from vc 2005 common tools directory ==
-call "%VS80COMNTOOLS%vsvars32.bat"
+call "%VS90COMNTOOLS%vsvars32.bat"
 
 rem ================================
 rem ==== MOD PATH CONFIGURATIONS ===
@@ -14,12 +14,12 @@ rem == Note that this path needs does not support long file/directory names ==
 rem == So instead of a path such as "C:\Program Files\Steam\steamapps\mymod" ==
 rem == you need to find the 8.3 abbreviation for the directory name using 'dir /x' ==
 rem == and set the directory to something like C:\PROGRA~2\Steam\steamapps\sourcemods\mymod ==
-set GAMEDIR=<SET ME>
+set GAMEDIR=C:\PROGRA~2\Steam\steamapps\sourcemods\delta36
 
 rem == Set the relative path to SourceSDK\bin\orangebox\bin ==
 rem == As above, this path does not support long directory names or spaces ==
 rem == e.g. ..\..\..\..\..\PROGRA~2\Steam\steamapps\<USER NAME>\sourcesdk\bin\orangebox\bin ==
-set SDKBINDIR=<SET ME>
+set SDKBINDIR=..\..\..\..\..\..\PROGRA~2\Steam\steamapps\sirmastercombat\sourcesdk\bin\orangebox\bin
 
 rem ==  Set the Path to your mods root source code ==
 rem this should already be correct, accepts relative paths only!
@@ -52,8 +52,7 @@ set ARG_EXTRA=
 
 %BUILD_SHADER% stdshader_dx9_20b		-game %GAMEDIR% -source %SOURCEDIR%
 %BUILD_SHADER% stdshader_dx9_30			-game %GAMEDIR% -source %SOURCEDIR% -dx9_30	-force30 
-
-
+%BUILD_SHADER% nightvision_30				-game %GAMEDIR% -source %SOURCEDIR%
 rem echo.
 if not "%dynamic_shaders%" == "1" (
   rem echo Finished full buildallshaders %*
@@ -63,3 +62,4 @@ if not "%dynamic_shaders%" == "1" (
 
 rem %TTEXE% -diff %tt_all_start% -cur
 rem echo.
+pause

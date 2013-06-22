@@ -26,7 +26,10 @@ class CVGuiScreen;
 #endif
 
 #define VIEWMODEL_INDEX_BITS 1
-
+//For viewmodels, better than remembering the numbers and then messing up afterwards!
+#define VM_LEGS 1
+#define VM_ARMS 2
+#define VM_CAM 3
 class CBaseViewModel : public CBaseAnimating
 {
 	DECLARE_CLASS( CBaseViewModel, CBaseAnimating );
@@ -56,6 +59,9 @@ public:
 								const QAngle& eyeAngles );
 	virtual void			AddViewModelBob( CBasePlayer *owner, Vector& eyePosition, QAngle& eyeAngles ) {};
 
+	//Special view model functions!
+	void		CalcIronsights( Vector &pos, QAngle &ang ); //... For iron sight
+	void		CalcLeg( Vector &pos, QAngle &ang ); //For SMOD kick!
 	// Initializes the viewmodel for use							
 	void					SetOwner( CBaseEntity *pEntity );
 	void					SetIndex( int nIndex );

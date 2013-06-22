@@ -1,0 +1,28 @@
+#include "common_ps_fxc.h"
+ 
+const HALF Brightness : register (c0); //this is a variable to set how bright the NV will be.
+ 
+sampler BaseTextureSampler : register( s0 ); //a sampler to get the texture this shader will be used on (in this case it will be a frame buffer)
+ 
+HALF4 main(float2 iTexCoord : TEXCOORD0) : COLOR //out main function
+{
+	float4 vAdd = float4(0.1,0.1,0.1,0); // just a float4 for use later
+ 
+	float4 cColor = tex2D(BaseTextureSampler,iTexCoord); //this takes our sampler and turns the rgba into floats between 0 and 1
+	cColor += tex2D(BaseTextureSampler, iTexCoord.xy + 0.001); // these 3 lines blur the image slightly
+	cColor += tex2D(BaseTextureSampler, iTexCoord.xy + 0.002);
+	cColor += tex2D(BaseTextureSampler, iTexCoord.xy + 0.003); 
+	if (((cColor.r + cColor.g + cColor.b)/3) < 0.9) // if the pixel is bright leave it bright
+	{
+		cColor = cColor / 4; //otherwise set it to an average color of the 4 images we just added together
+	}
+ 
+	float4 cTempColor = cColor; //a new float4 cTempColor for use later
+ 
+	float4 cFinal = cTempColor + vAdd; //adds the floats together
+ 
+	cFinal.g = (cTempColor.r + cTempColor.g + cTempColor.b)/3; // sets green the the average of rgb
+	cFinal.r = 0; //removes red and blue colors
+	cFinal.b = 0;
+	return cFinal * Brightness; // brighten the final image and return it
+}

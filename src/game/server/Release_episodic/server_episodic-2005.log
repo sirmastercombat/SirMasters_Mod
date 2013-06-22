@@ -1,0 +1,20 @@
+﻿  baseplayer_shared.cpp
+  obstacle_pushaway.cpp
+  ai_basehumanoid.cpp
+  ai_basenpc.cpp
+  ai_navigator.cpp
+  bmodels.cpp
+  buttons.cpp
+  doors.cpp
+  hl2_player.cpp
+  npc_citizen17.cpp
+  npc_playercompanion.cpp
+  npc_zombie.cpp
+  props.cpp
+  subs.cpp
+  Generating Code...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\SourceSDK.Source_Code\Delta36\src\game\server\.\Release_episodic\Server Episodic.dll) does not match the Linker's OutputFile property value (C:\SourceSDK.Source_Code\Delta36\src\game\server\Release_episodic\Server.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(Server Episodic) does not match the Linker's OutputFile property value (Server). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     Creating library .\Release_episodic\Server Episodic.lib and object .\Release_episodic\Server Episodic.exp
+  server_episodic-2005.vcxproj -> C:\SourceSDK.Source_Code\Delta36\src\game\server\.\Release_episodic\Server Episodic.dll
+          1 file(s) copied.

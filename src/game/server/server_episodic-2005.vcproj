@@ -28,9 +28,9 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Copying to c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\"
-				CommandLine="if exist &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot; attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.dll copy &quot;$(TargetDir)&quot;server.dll &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot;&#x0D;&#x0A;"
-				Outputs="c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll"
+				Description="Copying to c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\"
+				CommandLine="if exist &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot; attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.dll copy &quot;$(TargetDir)&quot;server.dll &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot;&#x0D;&#x0A;"
+				Outputs="c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -146,9 +146,9 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Copying to c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\"
-				CommandLine="if exist &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot; attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.dll copy &quot;$(TargetDir)&quot;server.dll &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll&quot;&#x0D;&#x0A;if exist c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.pdb attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.pdb&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.pdb copy &quot;$(TargetDir)&quot;server.pdb &quot;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin&quot;&#x0D;&#x0A;"
-				Outputs="c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.dll;c:\program files (x86)\steam\steamapps\SourceMods\sirmastersmod\bin\server.pdb"
+				Description="Copying to c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\"
+				CommandLine="if exist &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot; attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.dll copy &quot;$(TargetDir)&quot;server.dll &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll&quot;&#x0D;&#x0A;if exist c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.pdb attrib -r &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.pdb&quot;&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;server.pdb copy &quot;$(TargetDir)&quot;server.pdb &quot;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin&quot;&#x0D;&#x0A;"
+				Outputs="c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.dll;c:\program files (x86)\steam\steamapps\SourceMods\delta36\bin\server.pdb"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"

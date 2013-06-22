@@ -379,22 +379,26 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	Vector vmorigin = eyePosition;
 
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
-	//Allow weapon lagging
-	if ( pWeapon != NULL )
+	
+	switch(m_nViewModelIndex) //This may be a bad idea... But helps pick the behavior of the view models! ._. I've had a bad history with switches
 	{
-#if defined( CLIENT_DLL )
-		if ( !prediction->InPrediction() )
-#endif
+	default: //Default behaivior for view models!
+			//Allow weapon lagging
+		if ( pWeapon != NULL )
 		{
-			// add weapon-specific bob 
-			pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
+	#if defined( CLIENT_DLL )
+			if ( !prediction->InPrediction() )
+	#endif
+			{
+				// add weapon-specific bob 
+				pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
+			}
 		}
+		// Add model-specific bob even if no weapon associated (for head bob for off hand models)
+		AddViewModelBob( owner, vmorigin, vmangles );
+		// Add lag
+		CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 	}
-	// Add model-specific bob even if no weapon associated (for head bob for off hand models)
-	AddViewModelBob( owner, vmorigin, vmangles );
-	// Add lag
-	CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
-
 #if defined( CLIENT_DLL )
 	if ( !prediction->InPrediction() )
 	{

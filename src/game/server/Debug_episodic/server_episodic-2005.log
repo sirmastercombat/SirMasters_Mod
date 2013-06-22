@@ -1,0 +1,758 @@
+﻿  world.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\world.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weight_button.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\weight_button.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_cubemap.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\weapon_cubemap.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  wcedit.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\wcedit.cpp(14): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  waterbullet.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\waterbullet.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vguiscreen.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\vguiscreen.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_choreo_generic.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\vehicle_choreo_generic.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_baseserver.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\vehicle_baseserver.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_base.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\vehicle_base.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  variant_t.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\variant_t.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  util.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\util.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  triggers.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\triggers.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  trains.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\trains.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  toolframework_server.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\toolframework_server.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  timedeventmgr.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\timedeventmgr.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  textstatsmgr.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\textstatsmgr.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  testtraceline.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\testtraceline.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  testfunctions.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\testfunctions.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  test_stressentities.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\test_stressentities.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  test_proxytoggle.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\test_proxytoggle.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  tesla.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\tesla.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  tempmonster.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\tempmonster.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  team_spawnpoint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\team_spawnpoint.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  team.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\team.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_worlddecal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_worlddecal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_spritespray.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_spritespray.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_sprite.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_sprite.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_sparks.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_sparks.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_smoke.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_smoke.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_showline.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_showline.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_projecteddecal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_projecteddecal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_playerdecal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_playerdecal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_physicsprop.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_physicsprop.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_particlesystem.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_particlesystem.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_muzzleflash.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_muzzleflash.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_largefunnel.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_largefunnel.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_killplayerattachments.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_killplayerattachments.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_impact.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_impact.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_glowsprite.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_glowsprite.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_glassshatter.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_glassshatter.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  te_footprintdecal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_footprintdecal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_fizz.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_fizz.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_explosion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_explosion.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_energysplash.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_energysplash.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_effect_dispatch.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_effect_dispatch.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_dynamiclight.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_dynamiclight.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_decal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_decal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_clientprojectile.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_clientprojectile.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_bubbletrail.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_bubbletrail.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_bubbles.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_bubbles.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_bspdecal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_bspdecal.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_breakmodel.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_breakmodel.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_bloodstream.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_bloodstream.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_bloodsprite.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_bloodsprite.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamspline.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamspline.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamringpoint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamringpoint.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamring.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamring.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beampoints.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beampoints.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamlaser.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamlaser.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamfollow.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamfollow.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  te_beaments.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beaments.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_beamentpoint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_beamentpoint.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_basebeam.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_basebeam.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te_armorricochet.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te_armorricochet.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  te.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\te.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  tanktrain.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\tanktrain.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  sun.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\sun.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  subs.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\subs.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  steamjet.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\steamjet.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  sprite_perfmonitor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\sprite_perfmonitor.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  spotlightend.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\spotlightend.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  soundscape_system.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\soundscape_system.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  soundscape.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\soundscape.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  soundent.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\soundent.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  sound.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\sound.cpp(14): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  smokestack.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\smokestack.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  smoke_trail.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\smoke_trail.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  slideshow_display.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\slideshow_display.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  shadowcontrol.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\shadowcontrol.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  serverbenchmark_base.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\serverbenchmark_base.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  sendproxy.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\sendproxy.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  scriptedtarget.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\scriptedtarget.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  scripted.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\scripted.cpp(16): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  scratchpad_gamedll_helpers.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\scratchpad_gamedll_helpers.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  sceneentity.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\sceneentity.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  saverestore_gamedll.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\saverestore_gamedll.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  rope.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\rope.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  recipientfilter.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\recipientfilter.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ragdoll_manager.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\ragdoll_manager.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  props.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\props.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  pointteleport.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\pointteleport.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  pointhurt.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\pointhurt.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  pointanglesensor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\pointanglesensor.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_template.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\point_template.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_spotlight.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\point_spotlight.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_playermoveconstraint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\point_playermoveconstraint.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_devshot_camera.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\point_devshot_camera.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_camera.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\point_camera.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  plugin_check.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\plugin_check.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  playerlocaldata.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\playerlocaldata.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  playerinfomanager.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\playerinfomanager.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  player_resource.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\player_resource.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  player_pickup.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\player_pickup.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  player_lagcompensation.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\player_lagcompensation.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  player_command.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\player_command.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  player.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\player.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  plasma.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\plasma.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physobj.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physobj.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_prop_ragdoll.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_prop_ragdoll.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_npc_solver.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_npc_solver.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_main.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_main.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_impact_damage.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_impact_damage.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_fx.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_fx.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_cannister.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_cannister.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics_bone_follower.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics_bone_follower.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physics.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physics.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  physconstraint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\physconstraint.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  phys_controller.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\phys_controller.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  pathtrack.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\pathtrack.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  pathcorner.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\pathcorner.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  particle_system.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\particle_system.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  particle_smokegrenade.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\particle_smokegrenade.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  particle_light.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\particle_light.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  particle_fire.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\particle_fire.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_vehicledriver.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\npc_vehicledriver.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_talker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\npc_talker.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ndebugoverlay.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\ndebugoverlay.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_node.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_node.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_mesh.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_mesh.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_ladder.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_ladder.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_generate.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_generate.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_file.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_file.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_edit.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_edit.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_colors.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_colors.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  nav_area.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\nav_area.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  movie_explosion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\movie_explosion.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  movement.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\movement.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  movehelper_server.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\movehelper_server.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  monstermaker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\monstermaker.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  modelentities.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\modelentities.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  message_entity.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\message_entity.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  maprules.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\maprules.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  mapentities.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\mapentities.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logicrelay.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logicrelay.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logicentities.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logicentities.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logicauto.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logicauto.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logic_navigation.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logic_navigation.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logic_measure_movement.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logic_measure_movement.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  logic_achievement.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\logic_achievement.cpp(5): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  lights.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\lights.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  lightglow.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\lightglow.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_world.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\item_world.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  intermission.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\intermission.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  info_overlay_accessor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\info_overlay_accessor.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  info_camera_link.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\info_camera_link.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hltvdirector.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hltvdirector.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_stunstick.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_stunstick.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_smg1.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_smg1.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_shotgun.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_shotgun.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_rpg.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_rpg.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  weapon_pistol.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_pistol.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_physcannon.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_physcannon.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_frag.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_frag.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_flaregun.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_flaregun.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_crowbar.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_crowbar.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_crossbow.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_crossbow.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_citizenpackage.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_citizenpackage.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_cguard.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_cguard.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_bugbait.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_bugbait.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_ar2.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_ar2.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_annabelle.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_annabelle.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_alyxgun.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_alyxgun.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_357.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\weapon_357.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_viewcontroller.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_viewcontroller.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_prisoner_pod.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_prisoner_pod.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_jeep.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_jeep.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_crane.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_crane.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_cannon.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_cannon.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_apc.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_apc.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_airboat.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\vehicle_airboat.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  te_gaussexplosion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\te_gaussexplosion.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  script_intro.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\script_intro.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  rotorwash.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\rotorwash.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  proto_sniper.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\proto_sniper.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  prop_thumper.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\prop_thumper.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  prop_combine_ball.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\prop_combine_ball.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  point_apc_controller.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\point_apc_controller.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_zombine.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_zombine.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_zombie.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_zombie.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_vortigaunt_episodic.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_vortigaunt_episodic.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_turret_ground.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_turret_ground.cpp(6): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_turret_floor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_turret_floor.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_turret_ceiling.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_turret_ceiling.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_strider.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_strider.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_stalker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_stalker.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_scanner.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_scanner.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_rollermine.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_rollermine.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_playercompanion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_playercompanion.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_mossman.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_mossman.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_monk.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_monk.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  npc_missiledefense.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_missiledefense.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_metropolice.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_metropolice.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_manhack.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_manhack.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_launcher.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_launcher.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_kleiner.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_kleiner.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_ichthyosaur.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_ichthyosaur.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_headcrab.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_headcrab.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_gman.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_gman.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_fisherman.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_fisherman.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_fastzombie.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_fastzombie.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_enemyfinder.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_enemyfinder.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_eli.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_eli.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_dog.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_dog.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_crow.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_crow.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_cranedriver.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_cranedriver.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combines.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_combines.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combinegunship.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_combinegunship.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combinedropship.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_combinedropship.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combinecamera.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_combinecamera.cpp(25): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combine.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_combine.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  npc_citizen17.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_citizen17.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_bullseye.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_bullseye.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_breen.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_breen.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_basescanner.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_basescanner.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_barney.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_barney.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_barnacle.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_barnacle.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_attackchopper.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_attackchopper.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_apcdriver.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_apcdriver.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_antlionguard.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_antlionguard.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_antliongrub.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_antliongrub.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_antlion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_antlion.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_alyx_episodic.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_alyx_episodic.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_PoisonZombie.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_poisonzombie.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_BaseZombie.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\npc_basezombie.cpp(18): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  monster_dummy.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\monster_dummy.cpp(25): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  look_door.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\look_door.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_suit.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_suit.cpp(15): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_itemcrate.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_itemcrate.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_healthkit.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_healthkit.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_dynamic_resupply.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_dynamic_resupply.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  item_battery.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_battery.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  item_ammo.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\item_ammo.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  info_teleporter_countdown.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\info_teleporter_countdown.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  info_darknessmode_lightsource.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\info_darknessmode_lightsource.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl_playermove.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl_playermove.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_triggers.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_triggers.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_playerlocaldata.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_playerlocaldata.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_player.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_player.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_eventlog.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_eventlog.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_client.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_client.cpp(16): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hl2_ai_network.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\hl2_ai_network.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_spit.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_spit.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_pathfollower.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_pathfollower.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_homer.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_homer.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_frag.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_frag.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_bugbait.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_bugbait.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_beam.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_beam.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenade_ar2.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\grenade_ar2.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_tank.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\func_tank.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_recharge.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\func_recharge.cpp(16): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  func_bulletshield.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\func_bulletshield.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_starfield.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\env_starfield.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_speaker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\env_speaker.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_headcrabcanister.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\env_headcrabcanister.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_alyxemp.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\env_alyxemp.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  combine_mine.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\combine_mine.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  citadel_effects.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\citadel_effects.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  cbasespriteprojectile.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\cbasespriteprojectile.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  cbasehelicopter.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\cbasehelicopter.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  basehlcombatweapon.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\basehlcombatweapon.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ar2_explosion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ar2_explosion.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  antlion_maker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\antlion_maker.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  antlion_dust.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\antlion_dust.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_spotlight.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_spotlight.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_goal_police.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_goal_police.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_police.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_behavior_police.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_operator.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_behavior_operator.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_holster.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_behavior_holster.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_functank.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_behavior_functank.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_actbusy.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_behavior_actbusy.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  ai_allymanager.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\ai_allymanager.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Func_Monitor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hl2\func_monitor.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  hierarchy.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\hierarchy.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  h_cycler.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\h_cycler.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  h_ai.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\h_ai.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  guntarget.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\guntarget.cpp(14): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  grenadethrown.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\grenadethrown.cpp(15): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  globalstate.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\globalstate.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  globals.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\globals.cpp(19): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  gib.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\gib.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  genericmonster.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\genericmonster.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  genericactor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\genericactor.cpp(11): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  gameweaponmanager.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\gameweaponmanager.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  gametrace_dll.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\gametrace_dll.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  gameinterface.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\gameinterface.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  game_ui.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\game_ui.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  game.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\game.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_smokevolume.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_smokevolume.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_reflective_glass.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_reflective_glass.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_occluder.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_occluder.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  func_movelinear.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_movelinear.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_lod.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_lod.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_ladder_endpoint.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_ladder_endpoint.cpp(6): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_dust.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_dust.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_breakablesurf.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_breakablesurf.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_break.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_break.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_areaportalwindow.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_areaportalwindow.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_areaportalbase.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_areaportalbase.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  func_areaportal.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\func_areaportal.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  fourwheelvehiclephysics.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\fourwheelvehiclephysics.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  fogcontroller.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\fogcontroller.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  fish.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\fish.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  fire_smoke.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\fire_smoke.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  fire.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\fire.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  filters.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\filters.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  explode.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\explode.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  event_tempentity_tester.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\event_tempentity_tester.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  weapon_striderbuster.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\weapon_striderbuster.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_jeep_episodic.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\vehicle_jeep_episodic.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  vehicle_hl2buggy.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\vehicle_hl2buggy.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  prop_scalable.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\prop_scalable.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_puppet.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\npc_puppet.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_magnusson.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\npc_magnusson.cpp(14): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_hunter.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\npc_hunter.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_combine_cannon.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\npc_combine_cannon.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  npc_advisor.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\npc_advisor.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_passenger_zombie.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\ai_behavior_passenger_zombie.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_passenger_companion.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\ai_behavior_passenger_companion.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  ai_behavior_alyx_injured.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\episodic\ai_behavior_alyx_injured.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  envmicrophone.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\envmicrophone.cpp(12): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_zoom.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_zoom.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_tonemap_controller.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_tonemap_controller.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_texturetoggle.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_texturetoggle.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_screenoverlay.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_screenoverlay.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_projectedtexture.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_projectedtexture.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_player_surface_trigger.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_player_surface_trigger.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_particlescript.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_particlescript.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_entity_maker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_entity_maker.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_effectsscript.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_effectsscript.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  env_debughistory.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\env_debughistory.cpp(6): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  entitylist.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\entitylist.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  entityblocker.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\entityblocker.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  entity_tools_server.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\entity_tools_server.cpp(6): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  effects.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\effects.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  dynamiclight.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\dynamiclight.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  doors.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\doors.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  damagemodifier.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\damagemodifier.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  cplane.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\cplane.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  controlentities.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\controlentities.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  colorcorrectionvolume.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\colorcorrectionvolume.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  colorcorrection.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\colorcorrection.cpp(10): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  client.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\client.cpp(16): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  cbase.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\cbase.cpp(76): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  buttons.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\buttons.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  bmodels.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\bmodels.cpp(7): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  bitstring.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\bitstring.cpp(17): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  baseviewmodel.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\baseviewmodel.cpp(9): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  basetempentity.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\basetempentity.cpp(13): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  basemultiplayerplayer.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\basemultiplayerplayer.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  basegrenade_timed.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\basegrenade_timed.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
+  Generating Code...
+  Compiling...
+  basegrenade_contact.cpp
+c:\sourcesdk.source_code\delta36\src\game\server\basegrenade_contact.cpp(8): fatal error C1859: '.\Debug_episodic\Server Episodic.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem
