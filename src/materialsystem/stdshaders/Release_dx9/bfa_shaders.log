@@ -1,6 +1,0 @@
-﻿  nightvision.cpp
-nightvision.cpp(35): error C2664: 'IShaderShadow::EnableTexture' : cannot convert parameter 1 from 'TextureStage_t' to 'Sampler_t'
-          Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
-nightvision.cpp(39): error C2660: 'IShaderShadow::VertexShaderVertexFormat' : function does not take 5 arguments
-nightvision.cpp(49): error C2039: 'BindFBTexture' : is not a member of 'IShaderDynamicAPI'
-          C:\SourceSDK.Source_Code\Delta36\src\public\shaderapi/ishaderdynamic.h(117) : see declaration of 'IShaderDynamicAPI'

@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -11,8 +11,20 @@
 #if defined( CLIENT_DLL )
 #include "iprediction.h"
 #include "prediction.h"
+#include "client_virtualreality.h"
+#include "headtrack/isourcevirtualreality.h"
 #else
 #include "vguiscreen.h"
+#endif
+
+#if defined( CLIENT_DLL ) && defined( SIXENSE )
+#include "sixense/in_sixense.h"
+#include "sixense/sixense_convars_extern.h"
+#endif
+
+#ifdef SIXENSE
+extern ConVar in_forceuser;
+#include "iclientmode.h"
 #endif
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -379,26 +391,28 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	Vector vmorigin = eyePosition;
 
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
-	
-	switch(m_nViewModelIndex) //This may be a bad idea... But helps pick the behavior of the view models! ._. I've had a bad history with switches
+	//Allow weapon lagging
+	if ( pWeapon != NULL )
 	{
-	default: //Default behaivior for view models!
-			//Allow weapon lagging
-		if ( pWeapon != NULL )
+#if defined( CLIENT_DLL )
+		if ( !prediction->InPrediction() )
+#endif
 		{
-	#if defined( CLIENT_DLL )
-			if ( !prediction->InPrediction() )
-	#endif
-			{
-				// add weapon-specific bob 
-				pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
-			}
+			// add weapon-specific bob 
+			pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
+#if defined ( CSTRIKE_DLL )
+			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+#endif
 		}
-		// Add model-specific bob even if no weapon associated (for head bob for off hand models)
-		AddViewModelBob( owner, vmorigin, vmangles );
-		// Add lag
-		CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 	}
+	// Add model-specific bob even if no weapon associated (for head bob for off hand models)
+	AddViewModelBob( owner, vmorigin, vmangles );
+#if !defined ( CSTRIKE_DLL )
+	// This was causing weapon jitter when rotating in updated CS:S; original Source had this in above InPrediction block  07/14/10
+	// Add lag
+	CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+#endif
+
 #if defined( CLIENT_DLL )
 	if ( !prediction->InPrediction() )
 	{
@@ -407,10 +421,42 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	}
 #endif
 
+	if( UseVR() )
+	{
+		g_ClientVirtualReality.OverrideViewModelTransform( vmorigin, vmangles, pWeapon && pWeapon->ShouldUseLargeViewModelVROverride() );
+	}
+
 	SetLocalOrigin( vmorigin );
 	SetLocalAngles( vmangles );
 
+#ifdef SIXENSE
+	if( g_pSixenseInput->IsEnabled() && (owner->GetObserverMode()==OBS_MODE_NONE) && !UseVR() )
+	{
+		const float max_gun_pitch = 20.0f;
+
+		float viewmodel_fov_ratio = g_pClientMode->GetViewModelFOV()/owner->GetFOV();
+		QAngle gun_angles = g_pSixenseInput->GetViewAngleOffset() * -viewmodel_fov_ratio;
+
+		// Clamp pitch a bit to minimize seeing back of viewmodel
+		if( gun_angles[PITCH] < -max_gun_pitch )
+		{ 
+			gun_angles[PITCH] = -max_gun_pitch; 
+		}
+
+#ifdef WIN32 // ShouldFlipViewModel comes up unresolved on osx? Mabye because it's defined inline? fixme
+		if( ShouldFlipViewModel() ) 
+		{
+			gun_angles[YAW] *= -1.0f;
+		}
 #endif
+
+		vmangles = EyeAngles() +  gun_angles;
+
+		SetLocalAngles( vmangles );
+	}
+#endif
+#endif
+
 }
 
 //-----------------------------------------------------------------------------

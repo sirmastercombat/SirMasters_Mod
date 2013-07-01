@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -15,6 +15,7 @@
 #include "utlvector.h"
 #include "baseplayer_shared.h"
 #include "shared_classnames.h"
+#include "econ/ihasowner.h"
 
 class CBaseCombatWeapon;
 class CBaseCombatCharacter;
@@ -30,7 +31,7 @@ class CVGuiScreen;
 #define VM_LEGS 1
 #define VM_ARMS 2
 #define VM_CAM 3
-class CBaseViewModel : public CBaseAnimating
+class CBaseViewModel : public CBaseAnimating, public IHasOwner
 {
 	DECLARE_CLASS( CBaseViewModel, CBaseAnimating );
 public:
@@ -59,9 +60,6 @@ public:
 								const QAngle& eyeAngles );
 	virtual void			AddViewModelBob( CBasePlayer *owner, Vector& eyePosition, QAngle& eyeAngles ) {};
 
-	//Special view model functions!
-	void		CalcIronsights( Vector &pos, QAngle &ang ); //... For iron sight
-	void		CalcLeg( Vector &pos, QAngle &ang ); //For SMOD kick!
 	// Initializes the viewmodel for use							
 	void					SetOwner( CBaseEntity *pEntity );
 	void					SetIndex( int nIndex );
@@ -83,6 +81,8 @@ public:
 	void					ShowControlPanells( bool show );
 
 	virtual CBaseCombatWeapon *GetOwningWeapon( void );
+	
+	virtual CBaseEntity	*GetOwnerViaInterface( void ) { return GetOwner(); }
 
 	virtual bool			IsSelfAnimating()
 	{
@@ -136,9 +136,11 @@ public:
 
 	virtual bool			ShouldDraw();
 	virtual int				DrawModel( int flags );
+	virtual int				InternalDrawModel( int flags );
 	int						DrawOverriddenViewmodel( int flags );
 	virtual int				GetFxBlend( void );
 	virtual bool			IsTransparent( void );
+	virtual bool			UsesPowerOfTwoFrameBufferTexture( void );
 	
 	// Should this object cast shadows?
 	virtual ShadowType_t	ShadowCastType() { return SHADOWS_NONE; }

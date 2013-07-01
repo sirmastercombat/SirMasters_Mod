@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: Weapon data file parsing, shared by game & client dlls.
 //
@@ -38,6 +38,7 @@ typedef enum {
 	SPECIAL2,
 	SPECIAL3,
 	TAUNT,
+	DEPLOY,
 
 	// Add new shoot sound types here
 
@@ -110,22 +111,6 @@ public:
 	bool					m_bBuiltRightHanded;
 	bool					m_bAllowFlipping;	// False to disallow flipping the model, regardless of whether
 												// it is built left or right handed.
-	bool	m_sPrimaryBulletEnabled;
-	bool	m_sPrimaryMissleEnabled;
-	char	m_sPrimaryAmmoType;
-	int	m_sPrimaryDamage;
-	int m_sPrimaryShotCount;
-	float m_sPrimaryFireRate;
-	Vector m_vPrimarySpread;
-
-	bool	m_sSecondaryBulletEnabled;
-	bool	m_sSecondaryMissleEnabled;
-	bool	 m_sUsePrimaryAmmo;
-	char	m_sSecondaryAmmoType;
-	int	m_sSecondaryDamage;
-	int m_sSecondaryShotCount;
-	float m_sSecondaryFireRate;
-	Vector m_vSecondarySpread;
 
 // CLIENT DLL
 	// Sprite data, read from the data file
@@ -144,7 +129,7 @@ public:
 	bool					bShowUsageHint;							// if true, then when you receive the weapon, show a hint about it
 
 // SERVER DLL
-	
+
 };
 
 // The weapon parse function
@@ -166,7 +151,7 @@ void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned cha
 //
 // (This should be moved into a more appropriate place).
 //
-KeyValues* ReadEncryptedKVFile( IFileSystem *filesystem, const char *szFilenameWithoutExtension, const unsigned char *pICEKey );
+KeyValues* ReadEncryptedKVFile( IFileSystem *filesystem, const char *szFilenameWithoutExtension, const unsigned char *pICEKey, bool bForceReadEncryptedFile = false );
 
 
 // Each game implements this. It can return a derived class and override Parse() if it wants.

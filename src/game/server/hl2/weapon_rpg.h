@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -61,7 +61,7 @@ public:
 	unsigned int PhysicsSolidMaskForEntity( void ) const;
 
 	CHandle<CWeaponRPG>		m_hOwner;
-	//CHandle<CBaseHLCombatWeapon>		m_hOwner; //Is this a good replacement? Nope!
+
 	static CMissile *Create( const Vector &vecOrigin, const QAngle &vecAngles, edict_t *pentOwner );
 
 	void CreateDangerSounds( bool bState ){ m_bCreateDangerSounds = bState; }

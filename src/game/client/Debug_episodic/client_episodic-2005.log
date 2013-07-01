@@ -1,2 +1,0 @@
-﻿  spritemodel.cpp
-c:\sourcesdk.source_code\delta36\src\game\client\spritemodel.cpp(7): fatal error C1859: '.\Debug_episodic\client.pch' unexpected precompiled header error, simply rerunning the compiler might fix this problem

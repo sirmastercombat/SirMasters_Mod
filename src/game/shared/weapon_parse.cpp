@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: Weapon data file parsing, shared by game & client dlls.
 //
@@ -33,7 +33,8 @@ const char *pWeaponSoundCategories[ NUM_SHOOT_SOUND_TYPES ] =
 	"special1",
 	"special2",
 	"special3",
-	"taunt"
+	"taunt",
+	"deploy"
 };
 #else
 extern const char *pWeaponSoundCategories[ NUM_SHOOT_SOUND_TYPES ];
@@ -192,7 +193,7 @@ void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned cha
 	manifest->deleteThis();
 }
 
-KeyValues* ReadEncryptedKVFile( IFileSystem *filesystem, const char *szFilenameWithoutExtension, const unsigned char *pICEKey )
+KeyValues* ReadEncryptedKVFile( IFileSystem *filesystem, const char *szFilenameWithoutExtension, const unsigned char *pICEKey, bool bForceReadEncryptedFile /*= false*/ )
 {
 	Assert( strchr( szFilenameWithoutExtension, '.' ) == NULL );
 	char szFullName[512];
@@ -209,7 +210,7 @@ KeyValues* ReadEncryptedKVFile( IFileSystem *filesystem, const char *szFilenameW
 
 	Q_snprintf(szFullName,sizeof(szFullName), "%s.txt", szFilenameWithoutExtension);
 
-	if ( !pKV->LoadFromFile( filesystem, szFullName, pSearchPath ) ) // try to load the normal .txt file first
+	if ( bForceReadEncryptedFile || !pKV->LoadFromFile( filesystem, szFullName, pSearchPath ) ) // try to load the normal .txt file first
 	{
 #ifndef _XBOX
 		if ( pICEKey )
@@ -283,7 +284,15 @@ bool ReadWeaponDataFromFileForSlot( IFileSystem* filesystem, const char *szWeapo
 
 	char sz[128];
 	Q_snprintf( sz, sizeof( sz ), "scripts/%s", szWeaponName );
-	KeyValues *pKV = ReadEncryptedKVFile( filesystem, sz, pICEKey );
+
+	KeyValues *pKV = ReadEncryptedKVFile( filesystem, sz, pICEKey,
+#if defined( DOD_DLL )
+		true			// Only read .ctx files!
+#else
+		false
+#endif
+		);
+
 	if ( !pKV )
 		return false;
 
@@ -451,92 +460,5 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 			}
 		}
 	}
-	KeyValues *pWeaponSpec = pKeyValuesData->FindKey( "WeaponSpec" );
-		if ( pWeaponSpec )
-		{
-			KeyValues *pPrimaryFire = pWeaponSpec->FindKey( "PrimaryFire" );
-			if ( pPrimaryFire )
-			{
-				m_sPrimaryFireRate = pPrimaryFire->GetFloat("FireRate", 1.0f);
-				KeyValues *pBullet1 = pPrimaryFire->FindKey( "Bullet" );
-				if ( pBullet1 )
-				{
-					m_sPrimaryBulletEnabled = true;
-					m_sPrimaryDamage = pBullet1->GetInt( "Damage", 0 );
-					m_sPrimaryShotCount = pBullet1->GetInt( "ShotCount", 0 );
-					KeyValues *pSpread1 = pBullet1->FindKey( "Spread" );
-					if(pSpread1)
-					{
-						m_vPrimarySpread.x = sin( pSpread1->GetFloat("x", 1.0f) / 2);
-						m_vPrimarySpread.y = sin( pSpread1->GetFloat("y", 1.0f) / 2);
-						m_vPrimarySpread.z = sin( pSpread1->GetFloat("z", 1.0f) / 2);
-					}
-					else
-					{
-						m_vPrimarySpread.x = 0;
-						m_vPrimarySpread.y = 0;
-						m_vPrimarySpread.z = 0;
-					}
-				}
-				else
-				{
-					m_sPrimaryDamage = 0;
-					m_sSecondaryShotCount = 0;
-					m_sPrimaryBulletEnabled = false;
-				}
-				
-				KeyValues *pMissle1 = pPrimaryFire->FindKey( "Missle" );
-				if ( pMissle1 ) //No params yet, but setting this will enable missles
-				{
-					m_sPrimaryMissleEnabled = true;
-				}
-				else
-				{
-					m_sPrimaryMissleEnabled = false;
-				}
-			}
-			KeyValues *pSecondaryFire = pWeaponSpec->FindKey( "SecondaryFire" );
-			if ( pSecondaryFire )
-			{
-				m_sSecondaryFireRate = pSecondaryFire->GetFloat("FireRate", 1.0f);
-				m_sUsePrimaryAmmo =  ( pSecondaryFire->GetInt("UsePrimaryAmmo", 0) != 0 ) ? true : false;
-				KeyValues *pBullet2 = pSecondaryFire->FindKey( "Bullet" );
-				if ( pBullet2 )
-				{
-					m_sSecondaryBulletEnabled = true;
-					m_sSecondaryDamage = pBullet2->GetInt( "Damage", 0 );
-					m_sSecondaryShotCount = pBullet2->GetInt( "ShotCount", 0 );
-
-					KeyValues *pSpread2 = pBullet2->FindKey( "Spread" );
-					if(pSpread2)
-					{
-						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 1.0f) / 2);
-						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 1.0f) / 2);
-						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 1.0f) / 2);
-					}
-					else
-					{
-						m_vSecondarySpread.x = 0;
-						m_vSecondarySpread.y = 0;
-						m_vSecondarySpread.z = 0;
-					}
-				}
-				else
-				{
-					m_sSecondaryDamage = 0;
-					m_sSecondaryShotCount = 0;
-					m_sSecondaryBulletEnabled = false;
-				}
-				KeyValues *pMissle2 = pSecondaryFire->FindKey( "Missle" );
-				if ( pMissle2 ) //No params yet, but setting this will enable missles
-				{
-					m_sSecondaryMissleEnabled = true;
-				}
-				else
-				{
-					m_sSecondaryMissleEnabled = false;
-				}
-			}
-		}
 }
 
