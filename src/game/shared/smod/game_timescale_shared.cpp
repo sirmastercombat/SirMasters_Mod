@@ -60,7 +60,7 @@ void CGameTimescale::LevelShutdownPostEntity()
 
 void CGameTimescale::SetCurrentTimescale( float flTimescale )
 {
-	if ( m_flCurrentTimescale == flTimescale /* && m_flCurrentTimescale == engine->GetTimescale() */)
+	if ( m_flCurrentTimescale == flTimescale  && m_flCurrentTimescale == engine->GetTimescale() )
 		return;
 
 	// No ramp in/out, just set it!
@@ -74,7 +74,7 @@ void CGameTimescale::SetCurrentTimescale( float flTimescale )
 	m_flStartBlendRealtime = 0.0f;
 
 #ifndef CLIENT_DLL
-//	engine->SetTimescale( m_flCurrentTimescale );
+	engine->SetTimescale( m_flCurrentTimescale );
 
 	// Pass the change info to the client so it can do prediction
 	CReliableBroadcastRecipientFilter filter;
@@ -163,11 +163,11 @@ void CGameTimescale::UpdateTimescale( void )
 			m_flCurrentTimescale = m_flStartTimescale * ( 1.0f - flInterp ) + m_flDesiredTimescale * flInterp;
 		}
 	}
-	/*
+	
 	if ( m_flCurrentTimescale != engine->GetTimescale() )
 	{
 		engine->SetTimescale( m_flCurrentTimescale );
-	}*/
+	}
 }
 
 void CGameTimescale::ResetTimescale( void )

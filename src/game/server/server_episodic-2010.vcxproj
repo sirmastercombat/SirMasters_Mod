@@ -352,6 +352,7 @@ exit 1
     <ClInclude Include="..\..\common\language.h" />
     <ClInclude Include="logicrelay.h" />
     <ClInclude Include="..\..\public\map_utils.h" />
+    <ClInclude Include="mapadd.h" />
     <ClInclude Include="mapentities.h" />
     <ClInclude Include="..\..\game\shared\mapentities_shared.h" />
     <ClInclude Include="..\..\public\tier0\mem.h" />
@@ -722,6 +723,7 @@ exit 1
     <ClInclude Include="wcedit.h" />
     <ClInclude Include="..\..\game\shared\weapon_parse.h" />
     <ClInclude Include="..\..\game\shared\weapon_proficiency.h" />
+    <ClInclude Include="weapon_custom.h" />
     <ClInclude Include="world.h" />
     <ClInclude Include="hl2\ai_behavior_actbusy.h" />
     <ClInclude Include="episodic\ai_behavior_alyx_injured.h" />
@@ -1083,6 +1085,7 @@ exit 1
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="mapadd.cpp" />
     <ClCompile Include="mapentities.cpp" />
     <ClCompile Include="..\..\game\shared\mapentities_shared.cpp" />
     <ClCompile Include="maprules.cpp" />
@@ -1213,6 +1216,7 @@ exit 1
     <ClCompile Include="..\..\public\SoundParametersInternal.cpp" />
     <ClCompile Include="soundscape.cpp" />
     <ClCompile Include="soundscape_system.cpp" />
+    <ClCompile Include="weapon_custom.cpp" />
     <ClCompile Include="spotlightend.cpp" />
     <ClCompile Include="..\..\game\shared\Sprite.cpp" />
     <ClCompile Include="sprite_perfmonitor.cpp" />

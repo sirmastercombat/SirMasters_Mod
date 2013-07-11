@@ -49,6 +49,9 @@
 
 #include "basepropdoor.h"
 #include "doors.h"
+#include "filesystem.h"
+#include "weapon_custom.h"
+#include "mapadd.h"
 
 #ifdef HL2_EPISODIC
 #include "npc_alyx_episodic.h"
@@ -1177,6 +1180,12 @@ void CHL2_Player::Spawn(void)
 	CBaseViewModel *Leg = GetViewModel( VM_LEGS );
 	Leg->SetWeaponModel( "models/weapons/v_kick.mdl", NULL ); //TODO: Make it adjustable via console commands without crashing!
 	//Leg->SetOwner(this); //Not needed anymore, keeping just in case.
+	CMapAdd *initMapAddPlayer = GetMapAddEntity();
+	if(!initMapAddPlayer)
+		initMapAddPlayer = CreateMapAddEntity();
+	char szMapadd[128];
+	Q_snprintf( szMapadd, sizeof( szMapadd ), "mapadd/%s.txt", gpGlobals->mapname );
+	initMapAddPlayer->RunPlayerInit(szMapadd, "Init");
 }
 
 //-----------------------------------------------------------------------------
@@ -1739,6 +1748,12 @@ void CHL2_Player::CheatImpulseCommands( int iImpulse )
 {
 	switch( iImpulse )
 	{
+	case 110:
+		{
+			ConVar *host_timescale = cvar->FindVar( "bulletime_active" );
+			host_timescale->SetValue("1");
+			break;
+		}
 	case 50:
 	{
 		CommanderMode();
