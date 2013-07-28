@@ -3682,8 +3682,7 @@ bool CAI_BaseNPC::PreNPCThink()
 
 	if ( frameTimeLimit == FLT_MAX )
 	{
-		//Bullettime workaround?
-		pHostTimescale = ( cvar->FindVar( "bulletime_active" )->GetInt() != 0 ) ? cvar->FindVar( "bulletime_timescale" ) : cvar->FindVar( "host_timescale" );
+		pHostTimescale = cvar->FindVar( "host_timescale" );
 	}
 
 	bool bUseThinkLimits = ( !m_bInChoreo && ShouldUseFrameThinkLimits() );

@@ -111,22 +111,7 @@ public:
 	bool					m_bBuiltRightHanded;
 	bool					m_bAllowFlipping;	// False to disallow flipping the model, regardless of whether
 												// it is built left or right handed.
-	bool	m_sPrimaryBulletEnabled;
-	bool	m_sPrimaryMissleEnabled;
-	char	m_sPrimaryAmmoType;
-	float	m_sPrimaryDamage;
-	int m_sPrimaryShotCount;
-	float m_sPrimaryFireRate;
-	Vector m_vPrimarySpread;
 
-	bool	m_sSecondaryBulletEnabled;
-	bool	m_sSecondaryMissleEnabled;
-	bool	 m_sUsePrimaryAmmo;
-	char	m_sSecondaryAmmoType;
-	float	m_sSecondaryDamage;
-	int m_sSecondaryShotCount;
-	float m_sSecondaryFireRate;
-	Vector m_vSecondarySpread;
 // CLIENT DLL
 	// Sprite data, read from the data file
 	int						iSpriteCount;

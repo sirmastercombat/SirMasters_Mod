@@ -1,0 +1,4 @@
+#!/bin/bash
+
+devtools/bin/vpc /episodic +game /mksln game
+

@@ -10,18 +10,11 @@
 #include "tier0/vprof.h"
 #include "KeyValues.h"
 #include "iachievementmgr.h"
-#include "filesystem.h"
-
-#include "basehlcombatweapon_shared.h"
 
 #ifdef CLIENT_DLL
 
 	#include "usermessages.h"
 
-	#include "c_basehlcombatweapon.h"
-	#include "client_class.h"
-	#include "c_weapon__stubs.h"
-	#include "c_weapon_custom.h"
 #else
 
 	#include "player.h"
@@ -35,7 +28,6 @@
 	#include "tactical_mission.h"
 	#include "gamestats.h"
 
-	#include "weapon_custom.h"
 #endif
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -120,82 +112,6 @@ void CGameRulesProxy::NotifyNetworkStateChanged()
 
 
 
-#ifndef CLIENT_DLL
-//static CUtlDict< CEntityFactory<CWeaponCustom>*, unsigned short > m_EntityFactoryDatabase;
-/*static C_BaseEntity *CCHL2MPScriptedWeaponFactory( void )
-{
-	return static_cast< C_BaseEntity * >( new CWeaponCustom );
-};*/
-static CUtlDict< CEntityFactory<CWeaponCustom>*, unsigned short > m_WeaponFactoryDatabase;
-
-#endif
-void RegisterScriptedWeapon( const char *className )
-{
-#ifdef CLIENT_DLL
-	if ( GetClassMap().FindFactory( className ) )
-	{
-		return;
-	}
-
-	GetClassMap().Add( className, "CWeaponCustom", sizeof( C_WeaponCustom ));
-#else
-	if ( EntityFactoryDictionary()->FindFactory( className ) )
-	{
-		return;
-	}
-
-	unsigned short lookup = m_WeaponFactoryDatabase.Find( className );
-	if ( lookup != m_WeaponFactoryDatabase.InvalidIndex() )
-	{
-		return;
-	}
-
-	// Andrew; This fixes months worth of pain and anguish.
-	CEntityFactory<CWeaponCustom> *pFactory = new CEntityFactory<CWeaponCustom>( className );
-
-	lookup = m_WeaponFactoryDatabase.Insert( className, pFactory );
-	Assert( lookup != m_WeaponFactoryDatabase.InvalidIndex() );
-#endif
-	// BUGBUG: When attempting to precache weapons registered during runtime,
-	// they don't appear as valid registered entities.
-	// static CPrecacheRegister precache_weapon_(&CPrecacheRegister::PrecacheFn_Other, className);
-}
-void InitCustomWeapon( )
-{
-		FileFindHandle_t findHandle; // note: FileFINDHandle
- 
-	const char *pFilename = filesystem->FindFirstEx( "scripts/weapon_custom/*.txt", "MOD", &findHandle );
-	while (pFilename)
-	{
-		Msg("%s added to custom weapons!\n",pFilename);
-		
-		#if !defined(CLIENT_DLL)
-		//	CEntityFactory<CWeaponCustom> weapon_custom( pFilename );
-		//	UTIL_PrecacheOther(pFilename);
-		#endif
-		char fileBase[512] = "";
-		Q_FileBase( pFilename, fileBase, sizeof(fileBase) );
-		RegisterScriptedWeapon(fileBase);
-		//CEntityFactory<CWeaponCustom>(CEntityFactory<CWeaponCustom> &);
-		//LINK_ENTITY_TO_CLASS2(pFilename,CWeaponCustom);
-
-			WEAPON_FILE_INFO_HANDLE tmp;
-		#ifdef CLIENT_DLL
-			if ( ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp ) )
-			{
-				gWR.LoadWeaponSprites( tmp, true );
-			}
-		#else
-			ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp );
-		#endif
-
-
-		pFilename = filesystem->FindNext( findHandle );
-	}
- 
-	filesystem->FindClose( findHandle );
-
-}
 ConVar	old_radius_damage( "old_radiusdamage", "0.0", FCVAR_REPLICATED );
 
 #ifdef CLIENT_DLL //{
@@ -215,8 +131,6 @@ CGameRules::CGameRules() : CAutoGameSystemPerFrame( "CGameRules" )
 {
 	Assert( !g_pGameRules );
 	g_pGameRules = this;
-		//Try here...
-		InitCustomWeapon( );
 }	
 
 #else //}{
@@ -238,8 +152,7 @@ CGameRules::CGameRules() : CAutoGameSystemPerFrame( "CGameRules" )
 
 	GetVoiceGameMgr()->Init( g_pVoiceGameMgrHelper, gpGlobals->maxClients );
 	ClearMultiDamage();
-	//Try here...
-		InitCustomWeapon( );
+
 	m_flNextVerboseLogOutput = 0.0f;
 }
 

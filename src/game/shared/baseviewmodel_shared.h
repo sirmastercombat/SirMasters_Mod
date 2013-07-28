@@ -27,10 +27,7 @@ class CVGuiScreen;
 #endif
 
 #define VIEWMODEL_INDEX_BITS 1
-//For viewmodels, better than remembering the numbers and then messing up afterwards!
-#define VM_LEGS 1
-#define VM_ARMS 2
-#define VM_CAM 3
+
 class CBaseViewModel : public CBaseAnimating, public IHasOwner
 {
 	DECLARE_CLASS( CBaseViewModel, CBaseAnimating );

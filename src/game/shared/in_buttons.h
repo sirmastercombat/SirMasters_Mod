@@ -36,6 +36,6 @@
 #define IN_BULLRUSH		(1 << 22)
 #define IN_GRENADE1		(1 << 23)	// grenade 1
 #define IN_GRENADE2		(1 << 24)	// grenade 2
-#define	IN_ATTACK3		(1 << 25)	// Attack 3? Valve, why did you add this random one?
-#define IN_KICK			(1 << 26)
+#define	IN_ATTACK3		(1 << 25)
+
 #endif // IN_BUTTONS_H

@@ -31,7 +31,7 @@
 #include "engine/IStaticPropMgr.h"
 #include "particle_parse.h"
 #include "globalstate.h"
-#include "mapadd.h"
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -573,8 +573,6 @@ const char *GetDefaultLightstyleString( int styleIndex )
 	}
 	return "m";
 }
-ConVar bulletime_timescale( "bulletime_timescale", "0.2", FCVAR_ARCHIVE, "How fast should bullettime go?", true, 0.01f, true, 2.0f  );	
-ConVar bulletime_active( "bulletime_active", "0", 0, "Bullettime?", true, 0, true, 1  );	
 
 void CWorld::Precache( void )
 {
@@ -697,29 +695,6 @@ void CWorld::Precache( void )
 	}
 
 	g_iszFuncBrushClassname = AllocPooledString("func_brush");
-	//Bullettime
-
-//	ConVar *host_timescale = cvar->FindVar( "host_timescale" );
-//	if(host_timescale->IsFlagSet(FCVAR_CHEAT))
-//	{
-//		host_timescale->AddFlags(~FCVAR_CHEAT);
-//	}
-	//Mapadd
-//	char szMapadd[128];
-//	Q_snprintf( szMapadd, sizeof( szMapadd ), "mapadd/%s.txt", gpGlobals->mapname );
-//	CWorld::LoadMapAdd( szMapadd );
-	//Weapon custom load
-
-}
-
-//Mapadd
-bool CWorld::LoadMapAdd( const char *mapaddMap)
-{
-//	CMapAdd *entMapAdd = GetMapAddEntity();
-//	if(!entMapAdd)
-//		entMapAdd = CreateMapAddEntity();
-
-	return false;//entMapAdd->RunLabel(mapaddMap, "Init");
 }
 
 //-----------------------------------------------------------------------------

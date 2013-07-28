@@ -410,14 +410,7 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 #if !defined ( CSTRIKE_DLL )
 	// This was causing weapon jitter when rotating in updated CS:S; original Source had this in above InPrediction block  07/14/10
 	// Add lag
-	switch(m_nViewModelIndex)
-	{
-	case 0:
-		{
-			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
-			break;
-		}
-	}
+	CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 #endif
 
 #if defined( CLIENT_DLL )

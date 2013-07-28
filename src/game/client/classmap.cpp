@@ -43,9 +43,6 @@ public:
 	virtual void			Add( const char *mapname, const char *classname, int size, DISPATCHFUNCTION factory /*= 0*/ );
 	virtual const char		*Lookup( const char *classname );
 	virtual C_BaseEntity	*CreateEntity( const char *mapname );
-
-	virtual DISPATCHFUNCTION FindFactory( const char *classname );
-
 	virtual int				GetClassSize( const char *classname );
 
 private:
@@ -76,23 +73,6 @@ void CClassMap::Add( const char *mapname, const char *classname, int size, DISPA
 	element.factory = factory;
 	element.size = size;
 	m_ClassDict.Insert( classname, element );
-}
-
-DISPATCHFUNCTION CClassMap::FindFactory( const char *classname )
-{
-	for ( int i=m_ClassDict.First(); i != m_ClassDict.InvalidIndex(); i=m_ClassDict.Next( i ) )
-	{
-		classentry_t *lookup = &m_ClassDict[ i ];
-		if ( !lookup )
-			continue;
-
-		if ( Q_stricmp( lookup->GetMapName(), classname ) )
-			continue;
-
-		return lookup->factory;
-	}
-
-	return NULL;
 }
 
 const char *CClassMap::Lookup( const char *classname )

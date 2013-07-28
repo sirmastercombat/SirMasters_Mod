@@ -81,7 +81,7 @@ void WeaponsResource::LoadAllWeaponSprites( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void WeaponsResource::LoadWeaponSprites( WEAPON_FILE_INFO_HANDLE hWeaponFileInfo, bool customWeapon )
+void WeaponsResource::LoadWeaponSprites( WEAPON_FILE_INFO_HANDLE hWeaponFileInfo )
 {
 	// WeaponsResource is a friend of C_BaseCombatWeapon
 	FileWeaponInfo_t *pWeaponInfo = GetFileWeaponInfoFromHandle( hWeaponFileInfo );
@@ -104,10 +104,7 @@ void WeaponsResource::LoadWeaponSprites( WEAPON_FILE_INFO_HANDLE hWeaponFileInfo
 	pWeaponInfo->iconSmall = NULL;
 
 	char sz[128];
-	if(!customWeapon)
-		Q_snprintf(sz, sizeof( sz ), "scripts/%s", pWeaponInfo->szClassName);
-	else
-		Q_snprintf(sz, sizeof( sz ), "scripts/weapon_custom/%s", pWeaponInfo->szClassName);
+	Q_snprintf(sz, sizeof( sz ), "scripts/%s", pWeaponInfo->szClassName);
 
 	CUtlDict< CHudTexture *, int > tempList;
 

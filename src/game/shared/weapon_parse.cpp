@@ -13,6 +13,7 @@
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
+
 // The sound categories found in the weapon classname.txt files
 // This needs to match the WeaponSound_t enum in weapon_parse.h
 #if !defined(_STATIC_LINKED) || defined(CLIENT_DLL)
@@ -74,7 +75,7 @@ extern itemFlags_t g_ItemFlags[7];
 
 
 static CUtlDict< FileWeaponInfo_t*, unsigned short > m_WeaponInfoDatabase;
-static CUtlDict< FileWeaponInfo_t*, unsigned short > m_CustomWeaponInfoDatabase;
+
 #ifdef _DEBUG
 // used to track whether or not two weapons have been mistakenly assigned the wrong slot
 bool g_bUsedWeaponSlots[MAX_WEAPON_SLOTS][MAX_WEAPON_POSITIONS] = { 0 };
@@ -158,35 +159,6 @@ void ResetFileWeaponInfoDatabase( void )
 #endif
 }
 #endif
-
-/*
-void RegisterScriptedEntity( const char *className ) //Stole this from Hl2 Sandbox. >_> Don't get angry please.
-{
-#ifdef CLIENT_DLL
-	if ( GetClassMap().Lookup( className ) )
-	{
-		return;
-	}
-
-	GetClassMap().Add( className, "CWeaponCustom", sizeof( C_WeaponCustom ) );
-#else
-	if ( EntityFactoryDictionary()->FindFactory( className ) )
-	{
-		return;
-	}
-
-	unsigned short lookup = m_EntityFactoryDatabase.Find( className );
-	if ( lookup != m_EntityFactoryDatabase.InvalidIndex() )
-	{
-		return;
-	}
-
-	CEntityFactory<CWeaponCustom> *pFactory = new CEntityFactory<CWeaponCustom>( className );
-
-	lookup = m_EntityFactoryDatabase.Insert( className, pFactory );
-	Assert( lookup != m_EntityFactoryDatabase.InvalidIndex() );
-#endif
-}*/
 
 void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned char *pICEKey )
 {
@@ -321,14 +293,9 @@ bool ReadWeaponDataFromFileForSlot( IFileSystem* filesystem, const char *szWeapo
 #endif
 		);
 
-	if ( !pKV )		//Lets try again in the custom weapon foldier
-	{
-
-		Q_snprintf( sz, sizeof( sz ), "scripts/weapon_custom/%s", szWeaponName );
-		pKV = ReadEncryptedKVFile( filesystem, sz, pICEKey, false ); //CUSTOM WEAPONS DO NOT HAVE CTX FILES!
-	}
-	if ( !pKV ) //If it failed even after the custom weapon check, then don't read it
+	if ( !pKV )
 		return false;
+
 	pFileInfo->Parse( pKV, szWeaponName );
 
 	pKV->deleteThis();
@@ -493,92 +460,5 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 			}
 		}
 	}
-	KeyValues *pWeaponSpec = pKeyValuesData->FindKey( "WeaponSpec" );
-		if ( pWeaponSpec )
-		{
-			KeyValues *pPrimaryFire = pWeaponSpec->FindKey( "PrimaryFire" );
-			if ( pPrimaryFire )
-			{
-				m_sPrimaryFireRate = pPrimaryFire->GetFloat("FireRate", 1.0f);
-				KeyValues *pBullet1 = pPrimaryFire->FindKey( "Bullet" );
-				if ( pBullet1 )
-				{
-					m_sPrimaryBulletEnabled = true;
-					m_sPrimaryDamage = pBullet1->GetFloat( "Damage", 0 );
-					m_sPrimaryShotCount = pBullet1->GetInt( "ShotCount", 0 );
-					KeyValues *pSpread1 = pBullet1->FindKey( "Spread" );
-					if(pSpread1)
-					{
-						m_vPrimarySpread.x = sin( (pSpread1->GetFloat("x", 0.0f) / 2.0f));
-						m_vPrimarySpread.y = sin( (pSpread1->GetFloat("y", 0.0f) / 2.0f));
-						m_vPrimarySpread.z = sin( (pSpread1->GetFloat("z", 0.0f) / 2.0f));
-					}
-					else
-					{
-						m_vPrimarySpread.x = 0;
-						m_vPrimarySpread.y = 0;
-						m_vPrimarySpread.z = 0;
-					}
-				}
-				else
-				{
-					m_sPrimaryDamage = 0.0f;
-					m_sSecondaryShotCount = 0;
-					m_sPrimaryBulletEnabled = false;
-				}
-				
-				KeyValues *pMissle1 = pPrimaryFire->FindKey( "Missle" );
-				if ( pMissle1 ) //No params yet, but setting this will enable missles
-				{
-					m_sPrimaryMissleEnabled = true;
-				}
-				else
-				{
-					m_sPrimaryMissleEnabled = false;
-				}
-			}
-			KeyValues *pSecondaryFire = pWeaponSpec->FindKey( "SecondaryFire" );
-			if ( pSecondaryFire )
-			{
-				m_sSecondaryFireRate = pSecondaryFire->GetFloat("FireRate", 1.0f);
-				m_sUsePrimaryAmmo =  ( pSecondaryFire->GetInt("UsePrimaryAmmo", 0) != 0 ) ? true : false;
-				KeyValues *pBullet2 = pSecondaryFire->FindKey( "Bullet" );
-				if ( pBullet2 )
-				{
-					m_sSecondaryBulletEnabled = true;
-					m_sSecondaryDamage = pBullet2->GetFloat( "Damage", 0 );
-					m_sSecondaryShotCount = pBullet2->GetInt( "ShotCount", 0 );
-
-					KeyValues *pSpread2 = pBullet2->FindKey( "Spread" );
-					if(pSpread2)
-					{
-						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 0.0f) / 2.0f);
-						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 0.0f) / 2.0f);
-						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 0.0f) / 2.0f);
-					}
-					else
-					{
-						m_vSecondarySpread.x = 0;
-						m_vSecondarySpread.y = 0;
-						m_vSecondarySpread.z = 0;
-					}
-				}
-				else
-				{
-					m_sSecondaryDamage = 0.0f;
-					m_sSecondaryShotCount = 0;
-					m_sSecondaryBulletEnabled = false;
-				}
-				KeyValues *pMissle2 = pSecondaryFire->FindKey( "Missle" );
-				if ( pMissle2 ) //No params yet, but setting this will enable missles
-				{
-					m_sSecondaryMissleEnabled = true;
-				}
-				else
-				{
-					m_sSecondaryMissleEnabled = false;
-				}
-			}
-		}
 }
 

@@ -98,14 +98,17 @@
 #include "tf/tf_gc_server.h"
 #include "tf_gamerules.h"
 #include "tf_lobby.h"
-#include "player_vs_environment/tf_populator.h"
+#include "player_vs_environment/tf_population_manager.h"
 
 extern ConVar tf_mm_trusted;
 extern ConVar tf_mm_servermode;
 #endif
 
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 #include "nav_mesh.h"
+#endif
+
+#ifdef NEXT_BOT
 #include "NextBotManager.h"
 #endif
 
@@ -561,33 +564,7 @@ EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CServerGameDLL, IServerGameDLL, INTERFACEVERSI
 
 // When bumping the version to this interface, check that our assumption is still valid and expose the older version in the same way
 COMPILE_TIME_ASSERT( INTERFACEVERSION_SERVERGAMEDLL_INT == 9 );
-static void MountAdditionalContent()
-{
-	KeyValues *pMainFile = new KeyValues( "gameinfo.txt" );
-#ifndef _WINDOWS
-	// case sensitivity
-	pMainFile->LoadFromFile( filesystem, "GameInfo.txt", "MOD" );
-	if (!pMainFile)
-#endif
-	pMainFile->LoadFromFile( filesystem, "gameinfo.txt", "MOD" );
- 
-	if (pMainFile)
-	{
-		KeyValues* pFileSystemInfo = pMainFile->FindKey( "FileSystem" );
-		if (pFileSystemInfo)
-			for ( KeyValues *pKey = pFileSystemInfo->GetFirstSubKey(); pKey; pKey = pKey->GetNextKey() )
-			{
-				if ( strcmp(pKey->GetName(),"AdditionalContentId") == 0 )
-				{
-					int appid = abs(pKey->GetInt());
-					if (appid)
-						if( filesystem->MountSteamContent(-appid) != FILESYSTEM_MOUNT_OK )
-							Warning("Unable to mount extra content with appId: %i\n", appid);
-				}
-			}
-	}	
-	pMainFile->deleteThis();
-}
+
 bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory, 
 		CreateInterfaceFn physicsFactory, CreateInterfaceFn fileSystemFactory, 
 		CGlobalVars *pGlobals)
@@ -659,8 +636,6 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	// Yes, both the client and game .dlls will try to Connect, the soundemittersystem.dll will handle this gracefully
 	if ( !soundemitterbase->Connect( appSystemFactory ) )
 		return false;
-
-	MountAdditionalContent();
 
 	// cache the globals
 	gpGlobals = pGlobals;
@@ -758,7 +733,7 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	debugoverlay = (IVDebugOverlay *)appSystemFactory( VDEBUG_OVERLAY_INTERFACE_VERSION, NULL );
 
 #ifndef _XBOX
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 	// create the Navigation Mesh interface
 	TheNavMesh = NavMeshFactory();
 #endif
@@ -804,7 +779,7 @@ void CServerGameDLL::DLLShutdown( void )
 #endif
 
 #ifndef _XBOX
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 	// destroy the Navigation Mesh interface
 	if ( TheNavMesh )
 	{
@@ -1153,7 +1128,7 @@ void CServerGameDLL::ServerActivate( edict_t *pEdictList, int edictCount, int cl
 	}
 
 #ifndef _XBOX
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 	// load the Navigation Mesh for this map
 	TheNavMesh->Load();
 	TheNavMesh->OnServerActivate();
@@ -1248,9 +1223,11 @@ void CServerGameDLL::GameFrame( bool simulating )
 	GameStartFrame();
 
 #ifndef _XBOX
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 	TheNavMesh->Update();
+#endif
 
+#ifdef NEXT_BOT
 	TheNextBots().Update();
 #endif
 
@@ -1416,7 +1393,7 @@ void CServerGameDLL::LevelShutdown( void )
 	g_nCurrentChapterIndex = -1;
 
 #ifndef _XBOX
-#ifdef NEXT_BOT
+#ifdef USE_NAV_MESH
 	// reset the Navigation Mesh
 	if ( TheNavMesh )
 	{

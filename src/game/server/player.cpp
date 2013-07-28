@@ -4981,9 +4981,6 @@ void CBasePlayer::Spawn( void )
 	enginesound->SetPlayerDSP( user, 0, false );
 
 	CreateViewModel();
-	CreateViewModel(VM_LEGS);//Leg
-	CreateViewModel(VM_ARMS);//Arms?
-	CreateViewModel(VM_CAM);//Camera movement via animated models
 
 	SetCollisionGroup( COLLISION_GROUP_PLAYER );
 

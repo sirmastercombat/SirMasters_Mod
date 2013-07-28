@@ -104,6 +104,7 @@
 #include "replay/vgui/replayperformanceeditor.h"
 #endif
 #include "vgui/ILocalize.h"
+#include "vgui/IVGui.h"
 #include "ixboxsystem.h"
 #include "ipresence.h"
 #include "engine/imatchmaking.h"
@@ -843,33 +844,6 @@ extern IGameSystem *ViewportClientSystem();
 //-----------------------------------------------------------------------------
 ISourceVirtualReality *g_pSourceVR = NULL;
 
-static void MountAdditionalContent()
-{
-	KeyValues *pMainFile = new KeyValues( "gameinfo.txt" );
-#ifndef _WINDOWS
-	// case sensitivity
-	pMainFile->LoadFromFile( filesystem, "GameInfo.txt", "MOD" );
-	if (!pMainFile)
-#endif
-	pMainFile->LoadFromFile( filesystem, "gameinfo.txt", "MOD" );
- 
-	if (pMainFile)
-	{
-		KeyValues* pFileSystemInfo = pMainFile->FindKey( "FileSystem" );
-		if (pFileSystemInfo)
-			for ( KeyValues *pKey = pFileSystemInfo->GetFirstSubKey(); pKey; pKey = pKey->GetNextKey() )
-			{
-				if ( strcmp(pKey->GetName(),"AdditionalContentId") == 0 )
-				{
-					int appid = abs(pKey->GetInt());
-					if (appid)
-						if( filesystem->MountSteamContent(-appid) != FILESYSTEM_MOUNT_OK )
-							Warning("Unable to mount extra content with appId: %i\n", appid);
-				}
-			}
-	}	
-	pMainFile->deleteThis();
-}
 // Purpose: Called when the DLL is first loaded.
 // Input  : engineFactory - 
 // Output : int
@@ -981,7 +955,7 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 	{
 		return false;
 	}
-	MountAdditionalContent();
+
 	if ( CommandLine()->FindParm( "-textmode" ) )
 		g_bTextMode = true;
 
@@ -1009,6 +983,8 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 
 		g_pSourceVR->GetViewportBounds( ISourceVirtualReality::VREye_Left, NULL, NULL, &nViewportWidth, &nViewportHeight );
 		vgui::surface()->SetFullscreenViewport( 0, 0, nViewportWidth, nViewportHeight );
+
+		vgui::ivgui()->SetVRMode( true );
 	}
 
 	if (!Initializer::InitializeAllObjects())

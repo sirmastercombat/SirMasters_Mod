@@ -47,12 +47,6 @@
 #include "filters.h"
 #include "tier0/icommandline.h"
 
-#include "basepropdoor.h"
-#include "doors.h"
-#include "filesystem.h"
-#include "weapon_custom.h"
-#include "mapadd.h"
-
 #ifdef HL2_EPISODIC
 #include "npc_alyx_episodic.h"
 #endif
@@ -431,11 +425,6 @@ END_SEND_TABLE()
 void CHL2_Player::Precache( void )
 {
 	BaseClass::Precache();
-	PrecacheModel( "models/weapons/v_kick.mdl" ); //SMOD KICK STUFF!
-	PrecacheScriptSound( "HL2Player.kick_fire" );
-	PrecacheScriptSound( "HL2Player.kick_body" );
-	PrecacheScriptSound( "HL2Player.kick_wall" );
-	PrecacheScriptSound( "d3_citadel.guards_bangdoor" );
 
 	PrecacheScriptSound( "HL2Player.SprintNoPower" );
 	PrecacheScriptSound( "HL2Player.SprintStart" );
@@ -913,28 +902,6 @@ void CHL2_Player::PostThink( void )
 	{
 		 HandleAdmireGlovesAnimation();
 	}
-
-	if ( m_afButtonReleased & IN_KICK && m_flNextKickAttack / 2.0f < gpGlobals->curtime /* && m_flNextKickAttack < gpGlobals->curtime  && !m_bIsKicking*/ )
-	{
-		KickAttack();
-		m_bIsKicking = true;
-	}
-
-	if ( m_flNextKickAttack < gpGlobals->curtime )
-	{
-		m_bIsKicking = false;
-		CBaseViewModel *vm = GetViewModel( VM_LEGS );
-		
-		if ( vm )
-		{
-			int	idealSequence = vm->SelectWeightedSequence( ACT_VM_IDLE );
-		
-			if ( idealSequence >= 0 )
-			{
-				vm->SendViewModelMatchingSequence( idealSequence );
-			}
-		}
-	}
 }
 
 void CHL2_Player::StartAdmireGlovesAnimation( void )
@@ -1175,17 +1142,6 @@ void CHL2_Player::Spawn(void)
 	GetPlayerProxy();
 
 	SetFlashlightPowerDrainScale( 1.0f );
-
-	m_flNextKickAttack		= gpGlobals->curtime;
-	CBaseViewModel *Leg = GetViewModel( VM_LEGS );
-	Leg->SetWeaponModel( "models/weapons/v_kick.mdl", NULL ); //TODO: Make it adjustable via console commands without crashing!
-	//Leg->SetOwner(this); //Not needed anymore, keeping just in case.
-	CMapAdd *initMapAddPlayer = GetMapAddEntity();
-	if(!initMapAddPlayer)
-		initMapAddPlayer = CreateMapAddEntity();
-	char szMapadd[128];
-	Q_snprintf( szMapadd, sizeof( szMapadd ), "mapadd/%s.txt", gpGlobals->mapname );
-	initMapAddPlayer->RunPlayerInit(szMapadd, "Init");
 }
 
 //-----------------------------------------------------------------------------
@@ -1748,12 +1704,6 @@ void CHL2_Player::CheatImpulseCommands( int iImpulse )
 {
 	switch( iImpulse )
 	{
-	case 110:
-		{
-			ConVar *host_timescale = cvar->FindVar( "bulletime_active" );
-			host_timescale->SetValue("1");
-			break;
-		}
 	case 50:
 	{
 		CommanderMode();
@@ -2797,113 +2747,6 @@ bool CHL2_Player::BumpWeapon( CBaseCombatWeapon *pWeapon )
 
 }
 
-//Dear lord, why must you make me do this the wrong way?
-ConVar kick_throwforce( "kick_throwforce", "20", FCVAR_ARCHIVE, "The default throw force of kick without player velocity." );
-ConVar kick_damage( "kick_damage", "50", FCVAR_ARCHIVE, "The default damage of kick without player velocity." );
-
-ConVar kick_throwforce_mult( "kick_throwforce_mult", "1", FCVAR_ARCHIVE, "The multiplier for kick force." );
-ConVar kick_damage_mult( "kick_damage_mult", "1", FCVAR_ARCHIVE, "The multiplier for kick damage." );
-
-ConVar kick_throwforce_div( "kick_throwforce_div", "48", FCVAR_ARCHIVE, "Divide the velocity by this." );
-ConVar kick_damage_div( "kick_damage_div", "48", FCVAR_ARCHIVE, "Divide the velocity by this." );
-
-void CHL2_Player::KickAttack( void )
-{
-	MDLCACHE_CRITICAL_SECTION();
-	CBaseViewModel *vm = GetViewModel( VM_LEGS );
-
-	if ( vm )
-	{
-
-	//	CBaseViewModel *vm = GetViewModel( 2 );
-
-		int	idealSequence = vm->SelectWeightedSequence( ACT_VM_PRIMARYATTACK );
-		
-		if ( idealSequence >= 0 )
-		{
-			vm->SendViewModelMatchingSequence( idealSequence );
-		//	vm->AddGesture(Activity activity, bool addifmissing=true, bool autokill=true);
-		//	vm->AddGestureSequence(int sequence, bool autokill=true);
-			 m_flNextKickAttack = gpGlobals->curtime + vm->SequenceDuration( idealSequence ) - 0.5f; 
-		} 
-		QAngle	recoil = QAngle( random->RandomFloat( 1.0f, 2.0f ), random->RandomFloat( -1.0f, 1.0f ), 0 );
-		this->ViewPunch( recoil );
-
-
-		// Trace up or down based on where the enemy is...
-		// But only if we're basically facing that direction
-		Vector vecDirection;
-		AngleVectors( QAngle( clamp(EyeAngles().x, 20, 80), EyeAngles().y, EyeAngles().z), &vecDirection );
-
-		CBaseEntity *pEnemy = MyNPCPointer() ? MyNPCPointer()->GetEnemy() : NULL;
-		if ( pEnemy )
-		{
-			Vector vecDelta;
-			VectorSubtract( pEnemy->WorldSpaceCenter(), Weapon_ShootPosition(), vecDelta );
-			VectorNormalize( vecDelta );
-		
-			Vector2D vecDelta2D = vecDelta.AsVector2D();
-			Vector2DNormalize( vecDelta2D );
-			if ( DotProduct2D( vecDelta2D, vecDirection.AsVector2D() ) > 0.8f )
-			{
-				vecDirection = vecDelta;
-			}
-		}
-
-		Vector vecEnd;
-		VectorMA( Weapon_ShootPosition(), 50, vecDirection, vecEnd );
-		trace_t tr;
-		UTIL_TraceHull( Weapon_ShootPosition(), vecEnd, Vector(-16,-16,-16), Vector(16,16,16), MASK_SHOT_HULL, this, COLLISION_GROUP_NONE, &tr );
-
-		// did I hit someone?
-		float KickDamageMult = 	kick_damage.GetFloat() + ( kick_damage_mult.GetFloat() * ((fabs(GetAbsVelocity().x) + fabs(GetAbsVelocity().y) + fabs(GetAbsVelocity().z)) / kick_damage_div.GetFloat()));
-		float KickThrowForceMult = kick_throwforce.GetFloat() + ( kick_throwforce_mult.GetFloat() * ((fabs(GetAbsVelocity().x) + fabs(GetAbsVelocity().y) + fabs(GetAbsVelocity().z)) / kick_throwforce_div.GetFloat()));
-		
-		Msg("Kicking at %.2f of damage!\n", KickDamageMult);
-		Msg("Kicking at %.2f of force!\n", KickThrowForceMult);
-
-		if ( tr.m_pEnt )
-		{
-			if(!(tr.m_pEnt))
-			{
-			//	return;
-			}
-			else
-			{
-				CBasePropDoor *pDoor = dynamic_cast<CBasePropDoor*>((CBaseEntity*)tr.m_pEnt);
-				if (pDoor)
-				{
-					if(pDoor->HasSpawnFlags( SF_BREAKABLE_BY_PLAYER ))
-					{
-						AngularImpulse angVelocity( random->RandomFloat(0, 45), 18, random->RandomFloat(-45, 45) );
-						pDoor->PlayBreakOpenSound();
-						pDoor->BreakDoor(Weapon_ShootPosition(), angVelocity);
-						return;
-					}
-					pDoor->PlayBreakFailSound();
-					pDoor->KickFail();
-					return;
-				}
-			//	if(tr.m_pEnt->IsNPC())
-			//	{
-					CBaseEntity *Victum = this->CheckTraceHullAttack(  Weapon_ShootPosition(), vecEnd, Vector(-16,-16,-16), Vector(16,16,16), KickDamageMult, DMG_CRUSH, KickThrowForceMult, true );
-					if(Victum)
-					{
-						EmitSound( "HL2Player.kick_body" );
-						return;
-					}
-			//	}
-			}
-		}
-		UTIL_TraceLine(Weapon_ShootPosition(), vecEnd, MASK_SHOT_HULL, this, COLLISION_GROUP_NONE, &tr );//IF we hit anything else
-		if(tr.DidHit())
-		{
-			EmitSound( "HL2Player.kick_wall" );
-		}
-
-	}
-}
-
 //-----------------------------------------------------------------------------
 // Purpose: 
 // Input  : *cmd - 
@@ -2921,13 +2764,7 @@ bool CHL2_Player::ClientCommand( const CCommand &args )
 	}
 
 #endif
-		//Drop primary weapon
-	if ( !Q_stricmp( args[0], "attack_kick" ) ) //Kick attack! Ol SMOD STYLE! >:D
-	{
-		KickAttack( );
-		m_bIsKicking = true;
-		return true;
-	}
+
 	if ( !Q_stricmp( args[0], "emit" ) )
 	{
 		CSingleUserRecipientFilter filter( this );
