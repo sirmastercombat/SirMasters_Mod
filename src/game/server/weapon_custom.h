@@ -34,9 +34,15 @@ public:
 	int		WeaponRangeAttack2Condition( float flDot, float flDist );
 	Activity	GetPrimaryAttackActivity( void );
 
-	virtual const Vector& GetBulletSpread( void )
+	virtual const Vector& GetBulletSpreadPrimary( void )
 	{
-		static const Vector cone = VECTOR_CONE_5DEGREES;
+		static const Vector cone = this->GetWpnData().m_vPrimarySpread;
+		return cone;
+	}
+
+	virtual const Vector& GetBulletSpreadSecondary( void )
+	{
+		static const Vector cone = this->GetWpnData().m_vSecondarySpread;
 		return cone;
 	}
 	bool IsPrimaryBullet( void ) {return this->GetWpnData().m_sPrimaryBulletEnabled;}

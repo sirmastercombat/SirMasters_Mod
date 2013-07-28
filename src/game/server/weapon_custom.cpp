@@ -406,14 +406,14 @@ void CWeaponCustom::ShootBullets( bool isPrimary, bool usePrimaryAmmo )
 		info.m_iShots = this->GetWpnData().m_sPrimaryShotCount;
 		info.m_flDamage = this->GetWpnData().m_sPrimaryDamage;
 		info.m_iPlayerDamage = this->GetWpnData().m_sPrimaryDamage;
-		info.m_vecSpread = this->GetWpnData().m_vPrimarySpread;
+		info.m_vecSpread = GetBulletSpreadPrimary();
 	}
 	else
 	{
 		info.m_iShots = this->GetWpnData().m_sSecondaryShotCount;
 		info.m_flDamage = this->GetWpnData().m_sSecondaryDamage;
 		info.m_iPlayerDamage = this->GetWpnData().m_sSecondaryDamage;
-		info.m_vecSpread = this->GetWpnData().m_vSecondarySpread;
+		info.m_vecSpread = GetBulletSpreadSecondary();
 	}
 	info.m_vecSrc = pPlayer->Weapon_ShootPosition( );
 	info.m_vecDirShooting = pPlayer->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT );

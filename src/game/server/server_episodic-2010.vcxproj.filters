@@ -1784,10 +1784,10 @@
     <ClInclude Include="toolframework_server.h">
       <Filter>Tools Framework</Filter>
     </ClInclude>
-    <ClInclude Include="weapon_custom.h">
+    <ClInclude Include="mapadd.h">
       <Filter>Source Files\smod</Filter>
     </ClInclude>
-    <ClInclude Include="mapadd.h">
+    <ClInclude Include="weapon_custom.h">
       <Filter>Source Files\smod</Filter>
     </ClInclude>
   </ItemGroup>

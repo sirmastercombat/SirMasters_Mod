@@ -170,11 +170,11 @@ bool CMapAdd::HandleRemoveEnitity( KeyValues *mapaddValue)
 	{
 		Vector RemoveVector = Vector(0,0,0);
 		CBaseEntity *ppEnts[256];
-		int nEntCount = UTIL_EntitiesInSphere( ppEnts, 256, RemoveVector, mapaddValue->GetFloat("radius", 0), 0 );
 //		CBaseEntity *ppCandidates[256];
 		RemoveVector.x = mapaddValue->GetFloat("x", RemoveVector.x);
 		RemoveVector.y = mapaddValue->GetFloat("y", RemoveVector.y);
 		RemoveVector.z = mapaddValue->GetFloat("z", RemoveVector.z);
+		int nEntCount = UTIL_EntitiesInSphere( ppEnts, 256, RemoveVector, mapaddValue->GetFloat("radius", 0), 0 );
 
 				//Look through the entities it found
 			KeyValues *pEntKeyValues = mapaddValue->FindKey("entities");
@@ -189,9 +189,21 @@ bool CMapAdd::HandleRemoveEnitity( KeyValues *mapaddValue)
 			
 						if ( ppEnts[i] == NULL )
 							continue;
-						if(AllocPooledString(pEntKeyValuesRemove->GetName()) == AllocPooledString(ppEnts[i]->GetClassname()) || ( AllocPooledString(pEntKeyValuesRemove->GetName()) == ppEnts[i]->GetEntityName()))
+						if(AllocPooledString(pEntKeyValuesRemove->GetName()) == AllocPooledString("classname")) // || ( AllocPooledString(pEntKeyValuesRemove->GetName()) == ppEnts[i]->GetEntityName())
 						{
-							UTIL_Remove(ppEnts[i]);
+							if(AllocPooledString(pEntKeyValuesRemove->GetString()) == AllocPooledString(ppEnts[i]->GetClassname()))
+							{
+								UTIL_Remove(ppEnts[i]);
+								continue;
+							}
+						}
+						if(AllocPooledString(pEntKeyValuesRemove->GetName()) == AllocPooledString("targetname")) // || ( AllocPooledString(pEntKeyValuesRemove->GetName()) == ppEnts[i]->GetEntityName())
+						{
+							if(AllocPooledString(pEntKeyValuesRemove->GetString()) == ppEnts[i]->GetEntityName())
+							{
+								UTIL_Remove(ppEnts[i]);
+								continue;
+							}
 						}
 					}
 					pEntKeyValuesRemove = pEntKeyValuesRemove->GetNextValue();

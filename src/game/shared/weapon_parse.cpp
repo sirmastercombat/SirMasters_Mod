@@ -10,9 +10,7 @@
 #include "filesystem.h"
 #include "utldict.h"
 #include "ammodef.h"
-#if !defined(CLIENT_DLL)
-	#include "weapon_custom.h"
-#endif
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 // The sound categories found in the weapon classname.txt files
@@ -161,19 +159,16 @@ void ResetFileWeaponInfoDatabase( void )
 }
 #endif
 
-#ifndef CLIENT_DLL
-static CUtlDict< CEntityFactory<CWeaponCustom>*, unsigned short > m_EntityFactoryDatabase;
-#endif
+/*
 void RegisterScriptedEntity( const char *className ) //Stole this from Hl2 Sandbox. >_> Don't get angry please.
 {
 #ifdef CLIENT_DLL
-	if ( GetClassMap().FindFactory( className ) )
+	if ( GetClassMap().Lookup( className ) )
 	{
 		return;
 	}
 
-	GetClassMap().Add( className, "CWeaponCustom", sizeof( CWeaponCustom ),
-		&CCBaseScriptedFactory, true );
+	GetClassMap().Add( className, "CWeaponCustom", sizeof( C_WeaponCustom ) );
 #else
 	if ( EntityFactoryDictionary()->FindFactory( className ) )
 	{
@@ -191,33 +186,12 @@ void RegisterScriptedEntity( const char *className ) //Stole this from Hl2 Sandb
 	lookup = m_EntityFactoryDatabase.Insert( className, pFactory );
 	Assert( lookup != m_EntityFactoryDatabase.InvalidIndex() );
 #endif
-}
+}*/
 
 void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned char *pICEKey )
 {
 	if ( m_WeaponInfoDatabase.Count() )
 		return;
-	FileFindHandle_t findHandle; // note: FileFINDHandle
- 
-	const char *pFilename = filesystem->FindFirstEx( "scripts/weapon_custom/*.txt", "MOD", &findHandle );
-	while (pFilename)
-	{
-		Msg("%s added to custom weapons!\n",pFilename);
-		
-		#if !defined(CLIENT_DLL)
-		//	CEntityFactory<CWeaponCustom> weapon_custom( pFilename );
-		//	UTIL_PrecacheOther(pFilename);
-		#endif
-		char fileBase[512];
-		Q_FileBase( pFilename, fileBase, sizeof(fileBase) );
-		RegisterScriptedEntity(fileBase);
-		//CEntityFactory<CWeaponCustom>(CEntityFactory<CWeaponCustom> &);
-		//LINK_ENTITY_TO_CLASS2(pFilename,CWeaponCustom);
-		
-		pFilename = filesystem->FindNext( findHandle );
-	}
- 
-	filesystem->FindClose( findHandle );
 
 	KeyValues *manifest = new KeyValues( "weaponscripts" );
 	if ( manifest->LoadFromFile( filesystem, "scripts/weapon_manifest.txt", "GAME" ) )
@@ -535,9 +509,9 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 					KeyValues *pSpread1 = pBullet1->FindKey( "Spread" );
 					if(pSpread1)
 					{
-						m_vPrimarySpread.x = sin( pSpread1->GetFloat("x", 1.0f) / 2);
-						m_vPrimarySpread.y = sin( pSpread1->GetFloat("y", 1.0f) / 2);
-						m_vPrimarySpread.z = sin( pSpread1->GetFloat("z", 1.0f) / 2);
+						m_vPrimarySpread.x = sin( (pSpread1->GetFloat("x", 0.0f) / 2.0f));
+						m_vPrimarySpread.y = sin( (pSpread1->GetFloat("y", 0.0f) / 2.0f));
+						m_vPrimarySpread.z = sin( (pSpread1->GetFloat("z", 0.0f) / 2.0f));
 					}
 					else
 					{
@@ -578,9 +552,9 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 					KeyValues *pSpread2 = pBullet2->FindKey( "Spread" );
 					if(pSpread2)
 					{
-						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 1.0f) / 2);
-						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 1.0f) / 2);
-						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 1.0f) / 2);
+						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 0.0f) / 2.0f);
+						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 0.0f) / 2.0f);
+						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 0.0f) / 2.0f);
 					}
 					else
 					{
