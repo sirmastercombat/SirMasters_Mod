@@ -231,6 +231,11 @@ public:
 	void				FlashlightTurnOff( void );
 	bool				IsIlluminatedByFlashlight( CBaseEntity *pEntity, float *flReturnDot );
 	void				SetFlashlightPowerDrainScale( float flScale ) { m_flFlashlightPowerDrainScale = flScale; }
+	
+	//SMOD KICKING BITCH! >:3
+	void				KickAttack( void );
+	CNetworkVar( float, m_flNextKickAttack );
+	CNetworkVar( bool, m_bIsKicking );
 
 	// Underwater breather device
 	virtual void		SetPlayerUnderwater( bool state );

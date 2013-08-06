@@ -96,7 +96,7 @@ public:
 	void			GetAngleOverrideFromCurrentState( char *pOut, int size );
 
 	void			DisableMotion( void );
-
+	void			Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
 	// Input/Output
 	void			InputStartRadgollBoogie( inputdata_t &inputdata );
 	void			InputEnableMotion( inputdata_t &inputdata );

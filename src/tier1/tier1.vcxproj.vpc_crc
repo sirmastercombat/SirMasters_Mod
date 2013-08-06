@@ -1,0 +1,13 @@
+[vpc crc file version 2]
+0f234c44 C:\SourceSDK.Source_Code\SirMasters_Mod\src\devtools\bin\vpc.exe
+_Nc_/vpcgame:episodic_
+34a6f6eb tier1.vpc
+0b10632f ..\vpc_scripts\source_lib_base.vpc
+0426f692 ..\vpc_scripts\source_base.vpc
+42095785 ..\vpc_scripts\source_lib_win32_base.vpc
+351c8228 ..\vpc_scripts\version.vpc
+cd6c3b95 ..\vpc_scripts\source_lib_win32_debug.vpc
+24e5ed7f ..\vpc_scripts\source_lib_win32_release.vpc
+ba87b758 ..\vpc_scripts\source_win32_base.vpc
+18ccc137 ..\vpc_scripts\source_video_base.vpc
+48b3bb32 ..\vpc_scripts\definitions\win32_2010.def

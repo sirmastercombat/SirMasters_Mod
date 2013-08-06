@@ -27,7 +27,10 @@ class CVGuiScreen;
 #endif
 
 #define VIEWMODEL_INDEX_BITS 1
-
+//For viewmodels, better than remembering the numbers and then messing up afterwards!
+#define VM_LEGS 1
+#define VM_ARMS 2
+#define VM_CAM 3
 class CBaseViewModel : public CBaseAnimating, public IHasOwner
 {
 	DECLARE_CLASS( CBaseViewModel, CBaseAnimating );
@@ -51,7 +54,7 @@ public:
 	// Weapon client handling
 	virtual void			SendViewModelMatchingSequence( int sequence );
 	virtual void			SetWeaponModel( const char *pszModelname, CBaseCombatWeapon *weapon );
-
+	 void					CalcIronsights( Vector &pos, QAngle &ang );
 	virtual void			CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& original_angles );
 	virtual void			CalcViewModelView( CBasePlayer *owner, const Vector& eyePosition, 
 								const QAngle& eyeAngles );

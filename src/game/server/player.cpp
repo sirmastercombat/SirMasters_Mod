@@ -69,6 +69,7 @@
 #include "dt_utlvector_send.h"
 #include "vote_controller.h"
 #include "ai_speech.h"
+#include "physics_prop_ragdoll.h"
 
 #if defined USES_ECON_ITEMS
 #include "econ_wearable.h"
@@ -2801,7 +2802,10 @@ bool CBasePlayer::CanPickupObject( CBaseEntity *pObject, float massLimit, float 
 	//Must have a physics object
 	if (!count)
 		return false;
-
+	
+	CRagdollProp *pRagdoll = dynamic_cast<CRagdollProp*>(pObject);
+	if( pRagdoll )
+		return true;
 	float objectMass = 0;
 	bool checkEnable = false;
 	for ( int i = 0; i < count; i++ )
@@ -2820,6 +2824,7 @@ bool CBasePlayer::CanPickupObject( CBaseEntity *pObject, float massLimit, float 
 
 	//Msg( "Target mass: %f\n", pPhys->GetMass() );
 
+
 	//Must be under our threshold weight
 	if ( massLimit > 0 && objectMass > massLimit )
 		return false;
@@ -2833,6 +2838,7 @@ bool CBasePlayer::CanPickupObject( CBaseEntity *pObject, float massLimit, float 
 
 		// Allow pickup of phys props that are motion enabled on player pickup
 		CPhysicsProp *pProp = dynamic_cast<CPhysicsProp*>(pObject);
+
 		CPhysBox *pBox = dynamic_cast<CPhysBox*>(pObject);
 		if ( !pProp && !pBox )
 			return false;
@@ -4981,7 +4987,7 @@ void CBasePlayer::Spawn( void )
 	enginesound->SetPlayerDSP( user, 0, false );
 
 	CreateViewModel();
-
+	CreateViewModel(VM_LEGS);
 	SetCollisionGroup( COLLISION_GROUP_PLAYER );
 
 	// if the player is locked, make sure he stays locked
@@ -6542,7 +6548,14 @@ bool CBasePlayer::ClientCommand( const CCommand &args )
 		}
 		return true;
 	}
-
+	else if( stricmp( cmd, "toggle_ironsight" ) == 0 )
+	{
+		CBaseCombatWeapon *pWeapon = GetActiveWeapon();
+		if( pWeapon != NULL )
+			pWeapon->ToggleIronsights();
+ 
+		return true;
+	}
 	return false;
 }
 

@@ -460,5 +460,118 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 			}
 		}
 	}
+	KeyValues *pSights = pKeyValuesData->FindKey( "IronSight" );
+	if (pSights)
+	{
+		vecIronsightPosOffset.x		= pSights->GetFloat( "forward", 0.0f );
+		vecIronsightPosOffset.y		= pSights->GetFloat( "right", 0.0f );
+		vecIronsightPosOffset.z		= pSights->GetFloat( "up", 0.0f );
+ 
+		angIronsightAngOffset[PITCH]	= pSights->GetFloat( "pitch", 0.0f );
+		angIronsightAngOffset[YAW]		= pSights->GetFloat( "yaw", 0.0f );
+		angIronsightAngOffset[ROLL]		= pSights->GetFloat( "roll", 0.0f );
+ 
+		flIronsightFOVOffset		= pSights->GetFloat( "fov", 0.0f );
+	}
+	else
+	{
+		//note: you can set a bool here if you'd like to disable ironsights for weapons with no IronSight-key
+		vecIronsightPosOffset = vec3_origin;
+		angIronsightAngOffset.Init();
+		flIronsightFOVOffset = 0.0f;
+	}
+	KeyValues *pWeaponSpec = pKeyValuesData->FindKey( "WeaponSpec" );
+		if ( pWeaponSpec )
+		{
+			KeyValues *pPrimaryFire = pWeaponSpec->FindKey( "PrimaryFire" );
+			if ( pPrimaryFire )
+			{
+				m_sPrimaryFireRate = pPrimaryFire->GetFloat("FireRate", 1.0f);
+				KeyValues *pBullet1 = pPrimaryFire->FindKey( "Bullet" );
+				if ( pBullet1 )
+				{
+					m_sPrimaryBulletEnabled = true;
+					m_sPrimaryDamage = pBullet1->GetFloat( "Damage", 0 );
+					m_sPrimaryShotCount = pBullet1->GetInt( "ShotCount", 0 );
+					m_iPrimaryPenetrateCount = pBullet1->GetInt( "PenetrationMax", 0 );
+					m_flPrimaryPenetrateDepth = pBullet1->GetFloat( "PenetrationDepth", 0 );
+
+					KeyValues *pSpread1 = pBullet1->FindKey( "Spread" );
+					if(pSpread1)
+					{
+						m_vPrimarySpread.x = sin( (pSpread1->GetFloat("x", 0.0f) / 2.0f));
+						m_vPrimarySpread.y = sin( (pSpread1->GetFloat("y", 0.0f) / 2.0f));
+						m_vPrimarySpread.z = sin( (pSpread1->GetFloat("z", 0.0f) / 2.0f));
+					}
+					else
+					{
+						m_vPrimarySpread.x = 0.0f;
+						m_vPrimarySpread.y = 0.0f;
+						m_vPrimarySpread.z = 0.0f;
+					}
+				}
+				else
+				{
+					m_sPrimaryDamage = 0.0f;
+					m_sSecondaryShotCount = 0;
+					m_sPrimaryBulletEnabled = false;
+				}
+
+				KeyValues *pMissle1 = pPrimaryFire->FindKey( "Missle" );
+				if ( pMissle1 ) //No params yet, but setting this will enable missles
+				{
+					m_sPrimaryMissleEnabled = true;
+				}
+				else
+				{
+					m_sPrimaryMissleEnabled = false;
+				}
+			}
+			KeyValues *pSecondaryFire = pWeaponSpec->FindKey( "SecondaryFire" );
+			if ( pSecondaryFire )
+			{
+				m_sSecondaryFireRate = pSecondaryFire->GetFloat("FireRate", 1.0f);
+				m_sUsePrimaryAmmo =  ( pSecondaryFire->GetInt("UsePrimaryAmmo", 0) != 0 ) ? true : false;
+				KeyValues *pBullet2 = pSecondaryFire->FindKey( "Bullet" );
+				if ( pBullet2 )
+				{
+					m_sSecondaryBulletEnabled = true;
+					m_sSecondaryDamage = pBullet2->GetFloat( "Damage", 0 );
+					m_sSecondaryShotCount = pBullet2->GetInt( "ShotCount", 0 );
+					m_iSecondaryPenetrateCount = pBullet2->GetInt( "PenetrationMax", 0 );
+					m_flSecondaryPenetrateDepth = pBullet2->GetFloat( "PenetrationDepth", 0 );
+
+
+					KeyValues *pSpread2 = pBullet2->FindKey( "Spread" );
+					if(pSpread2)
+					{
+						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 0.0f) / 2.0f);
+						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 0.0f) / 2.0f);
+						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 0.0f) / 2.0f);
+					}
+					else
+					{
+						m_vSecondarySpread.x = 0.0f;
+						m_vSecondarySpread.y = 0.0f;
+						m_vSecondarySpread.z = 0.0f;
+					}
+				}
+				else
+				{
+					m_sSecondaryDamage = 0.0f;
+					m_sSecondaryShotCount = 0;
+					m_sSecondaryBulletEnabled = false;
+				}
+				KeyValues *pMissle2 = pSecondaryFire->FindKey( "Missle" );
+				if ( pMissle2 ) //No params yet, but setting this will enable missles
+				{
+					m_sSecondaryMissleEnabled = true;
+				}
+				else
+				{
+					m_sSecondaryMissleEnabled = false;
+				}
+			}
+		}
 }
 

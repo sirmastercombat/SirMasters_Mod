@@ -36,7 +36,8 @@
 #define SF_DOOR_SILENT_TO_NPCS		16384	// Does not alert NPC's when opened.
 #define SF_DOOR_IGNORE_USE			32768	// Completely ignores player +use commands.
 #define SF_DOOR_NEW_USE_RULES		65536	// For func_door entities, behave more like prop_door_rotating with respect to +USE (changelist 242482)
-
+#define SF_BREAKABLE_BY_NPCS	   131072	// HUMAN ERROR: Is this door breakable by Alien Grunts? 
+#define SF_BREAKABLE_BY_PLAYER	   262144
 
 enum FuncDoorSpawnPos_t
 {

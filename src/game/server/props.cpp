@@ -3529,6 +3529,10 @@ BEGIN_DATADESC(CBasePropDoor)
 	DEFINE_KEYFIELD(m_SoundMoving, FIELD_SOUNDNAME, "soundmoveoverride"),
 	DEFINE_KEYFIELD(m_SoundOpen, FIELD_SOUNDNAME, "soundopenoverride"),
 	DEFINE_KEYFIELD(m_SoundClose, FIELD_SOUNDNAME, "soundcloseoverride"),
+
+	DEFINE_KEYFIELD(m_SoundKickOpen, FIELD_SOUNDNAME, "soundkick"),
+	DEFINE_KEYFIELD(m_SoundKickFail, FIELD_SOUNDNAME, "soundkickfail"),
+
 	DEFINE_KEYFIELD(m_ls.sLockedSound, FIELD_SOUNDNAME, "soundlockedoverride"),
 	DEFINE_KEYFIELD(m_ls.sUnlockedSound, FIELD_SOUNDNAME, "soundunlockedoverride"),
 	DEFINE_KEYFIELD(m_SlaveName, FIELD_STRING, "slavename" ),
@@ -3547,6 +3551,10 @@ BEGIN_DATADESC(CBasePropDoor)
 	DEFINE_INPUTFUNC(FIELD_VOID, "Toggle", InputToggle),
 	DEFINE_INPUTFUNC(FIELD_VOID, "Lock", InputLock),
 	DEFINE_INPUTFUNC(FIELD_VOID, "Unlock", InputUnlock),
+	DEFINE_INPUTFUNC(FIELD_VOID, "Kickable", InputKickable),
+	DEFINE_INPUTFUNC(FIELD_VOID, "NotKickable", InputNotKickable),
+	DEFINE_INPUTFUNC(FIELD_VOID, "KickableNPC", InputKickableNPC),
+	DEFINE_INPUTFUNC(FIELD_VOID, "NotKickableNPC", InputNotKickableNPC),
 
 	DEFINE_OUTPUT(m_OnBlockedOpening, "OnBlockedOpening"),
 	DEFINE_OUTPUT(m_OnBlockedClosing, "OnBlockedClosing"),
@@ -3557,6 +3565,8 @@ BEGIN_DATADESC(CBasePropDoor)
 	DEFINE_OUTPUT(m_OnClose, "OnClose"),
 	DEFINE_OUTPUT(m_OnOpen, "OnOpen"),
 	DEFINE_OUTPUT(m_OnLockedUse, "OnLockedUse" ),
+	DEFINE_OUTPUT(m_OnBroken, "OnBroken" ),
+	DEFINE_OUTPUT(m_OnKickFail, "OnKickFail" ),
 	DEFINE_EMBEDDED( m_ls ),
 
 	// Function Pointers
@@ -3809,12 +3819,17 @@ void CBasePropDoor::CalcDoorSounds()
 	UTIL_ValidateSoundName( m_SoundClose, "DoorSound.Null" );
 	UTIL_ValidateSoundName( m_ls.sLockedSound, "DoorSound.Null" );
 	UTIL_ValidateSoundName( m_ls.sUnlockedSound, "DoorSound.Null" );
+	
+	UTIL_ValidateSoundName( m_SoundKickOpen,"d1_trainstation_03.breakin_doorkick" );
+	UTIL_ValidateSoundName( m_SoundKickFail, "d3_citadel.guards_bangdoor" );
 
 	PrecacheScriptSound( STRING( m_SoundMoving ) );
 	PrecacheScriptSound( STRING( m_SoundOpen ) );
 	PrecacheScriptSound( STRING( m_SoundClose ) );
 	PrecacheScriptSound( STRING( m_ls.sLockedSound ) );
 	PrecacheScriptSound( STRING( m_ls.sUnlockedSound ) );
+	PrecacheScriptSound( STRING( m_SoundKickOpen ) );
+	PrecacheScriptSound( STRING( m_SoundKickFail ) );
 }
 
 
@@ -4031,6 +4046,23 @@ void CBasePropDoor::Lock(void)
 }
 
 
+//-----------------------------------------------------------------------------
+void CBasePropDoor::InputKickable(inputdata_t &inputdata)
+{
+	this->AddSpawnFlags(SF_BREAKABLE_BY_PLAYER);
+}
+void CBasePropDoor::InputNotKickable(inputdata_t &inputdata)
+{
+	this->RemoveSpawnFlags(SF_BREAKABLE_BY_PLAYER);
+}
+void CBasePropDoor::InputKickableNPC(inputdata_t &inputdata)
+{
+	this->AddSpawnFlags(SF_BREAKABLE_BY_NPCS);
+}
+void CBasePropDoor::InputNotKickableNPC(inputdata_t &inputdata)
+{
+	this->RemoveSpawnFlags(SF_BREAKABLE_BY_NPCS);
+}
 //-----------------------------------------------------------------------------
 // Purpose: Unlocks the door so that it can be opened.
 //-----------------------------------------------------------------------------
@@ -4560,7 +4592,143 @@ bool CBasePropDoor::TestCollision( const Ray_t &ray, unsigned int mask, trace_t&
 
 	return false;
 }
+bool CBasePropDoor::AreWeLocked( void )
+{
+	if (GetMaster())
+	{
+		return GetMaster()->IsDoorLocked();
+	}
 
+	return IsDoorLocked();
+}
+
+bool CBasePropDoor::IsMyDoorLock( CBaseEntity *pLock )
+{
+	if (GetMaster())
+	{
+		return GetMaster()->IsMyDoorLock( pLock );
+	}
+
+	int	numDoors = m_hDoorList.Count();
+
+	CBasePropDoor *pLinkedDoor = NULL;
+
+	// Open all linked doors
+	for ( int i = 0; i < numDoors; i++ )
+	{
+		pLinkedDoor = m_hDoorList[i];
+
+		if ( pLinkedDoor != NULL && pLinkedDoor == pLock->GetParent())
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void CBasePropDoor::KickFail( void )
+{
+	m_OnKickFail.FireOutput( this, this );
+}
+void CBasePropDoor::BreakDoors(Vector vecOrigin, AngularImpulse angImpulse)
+{
+	//TERO: only break friends if we are closed
+	if (IsDoorClosed())
+	{
+		if (GetMaster())
+		{
+			GetMaster()->BreakDoors(vecOrigin, angImpulse);
+			return;
+		}
+
+		/*CBasePropDoor *pTarget = NULL;
+		while ( (pTarget = (CBasePropDoor*)gEntList.FindEntityByName( pTarget, m_SlaveName )) != NULL)
+		{
+			if (pTarget != this)
+			{
+				pTarget->BreakDoor(vecOrigin, angImpulse);
+			}
+		}*/
+
+		int	numDoors = m_hDoorList.Count();
+
+		CBasePropDoor *pLinkedDoor = NULL;
+
+		// Open all linked doors
+		for ( int i = 0; i < numDoors; i++ )
+		{
+			pLinkedDoor = m_hDoorList[i];
+
+			if ( pLinkedDoor != NULL )
+			{
+				// If the door isn't already moving, get it moving
+				pLinkedDoor->BreakDoor(vecOrigin, angImpulse);
+			}
+		}
+	}
+
+	BreakDoor(vecOrigin, angImpulse);
+}
+
+void CBasePropDoor::BreakDoor(Vector vecOrigin, AngularImpulse angImpulse)
+{
+	//DevMsg("trying to create  physics prop");
+
+	// Try to create entity
+	CPhysicsProp *pProp = dynamic_cast< CPhysicsProp * >( CreateEntityByName( "prop_physics" ) );
+	if ( pProp )
+	{
+		char buf[512];
+		// Pass in standard key values
+		Q_snprintf( buf, sizeof(buf), "%.10f %.10f %.10f", GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z );
+		pProp->KeyValue( "origin", buf );
+		Q_snprintf( buf, sizeof(buf), "%.10f %.10f %.10f", GetAbsAngles().x, GetAbsAngles().y, GetAbsAngles().z );
+		pProp->KeyValue( "angles", buf );
+		pProp->KeyValue( "model", STRING(GetModelName()) );
+		pProp->KeyValue( "fademindist", "-1" );
+		pProp->KeyValue( "fademaxdist", "0" );
+		pProp->KeyValue( "fadescale", "1" );
+		pProp->KeyValue( "inertiaScale", "1.0" );
+		pProp->KeyValue( "physdamagescale", "0.1" );
+
+		pProp->Precache();
+		DispatchSpawn( pProp );
+		pProp->m_nSkin = m_nSkin;
+		pProp->SetBodygroup(1, GetBodygroup(1));
+		pProp->Activate();
+
+		IPhysicsObject *pPhysObj = pProp->VPhysicsGetObject();
+
+		if( pPhysObj )
+		{
+			Vector v = WorldSpaceCenter() - vecOrigin;
+			VectorNormalize(v);
+
+			// Send the object at 800 in/sec toward the enemy.  Add 200 in/sec up velocity to keep it
+			// in the air for a second or so.
+			v = v * 1400;
+			v.z += 100;
+
+			pPhysObj->AddVelocity( &v, &angImpulse );
+		}
+
+		//TERO: since interactive debris doesn't allow collision with player, I needed to code this crap
+		pProp->SetCollisionGroup( COLLISION_GROUP_INTERACTIVE_DEBRIS );
+		//TERO: the door should become debris after a time
+		
+		//CHLSS_Debris_Maker::Create( pProp );
+
+		m_OnBroken.FireOutput( this, this );
+
+		//m_OnOpen.FireOutput( this, this );
+
+		RemoveSpawnFlags(SF_BREAKABLE_BY_NPCS);
+		RemoveSpawnFlags(SF_BREAKABLE_BY_PLAYER);
+
+		UTIL_Remove( this );
+	}
+}
 
 //-----------------------------------------------------------------------------
 // Custom trace filter for doors

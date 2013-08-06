@@ -47,7 +47,13 @@ $Project "Server (Episodic)"
 		$File	"vehicle_choreo_generic.cpp"
 		$File	"$SRCDIR\game\shared\vehicle_choreo_generic_shared.h"
 		$File	"$SRCDIR\game\shared\weapon_parse_default.cpp"
-
+		
+		$Folder	"SMMOD DLL"
+		{
+			$File	"$SRCDIR\game\server\weapon_custom.cpp"
+			$File	"$SRCDIR\game\server\weapon_custom.h"
+		}
+		
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\episodic\achievements_ep1.cpp"

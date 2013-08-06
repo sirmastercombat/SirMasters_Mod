@@ -381,6 +381,38 @@ void CBaseViewModel::SendViewModelMatchingSequence( int sequence )
 #if defined( CLIENT_DLL )
 #include "ivieweffects.h"
 #endif
+void CBaseViewModel::CalcIronsights( Vector &pos, QAngle &ang )
+{
+	CBaseCombatWeapon *pWeapon = GetOwningWeapon();
+ 
+	if ( !pWeapon )
+		return;
+ 
+	//get delta time for interpolation
+	float delta = ( gpGlobals->curtime - pWeapon->m_flIronsightedTime ) * 1.0f; //modify this value to adjust how fast the interpolation is
+	float exp = ( pWeapon->IsIronsighted() ) ? 
+		( delta > 1.0f ) ? 1.0f : delta : //normal blending
+		( delta > 1.0f ) ? 0.0f : 1.0f - delta; //reverse interpolation
+ 
+	if( exp <= 0.001f ) //fully not ironsighted; save performance
+		return;
+ 
+	Vector newPos = pos;
+	QAngle newAng = ang;
+ 
+	Vector vForward, vRight, vUp, vOffset;
+	AngleVectors( newAng, &vForward, &vRight, &vUp );
+	vOffset = pWeapon->GetIronsightPositionOffset();
+ 
+	newPos += vForward * vOffset.x;
+	newPos += vRight * vOffset.y;
+	newPos += vUp * vOffset.z;
+	newAng += pWeapon->GetIronsightAngleOffset();
+	//fov is handled by CBaseCombatWeapon
+ 
+	pos += ( newPos - pos ) * exp;
+	ang += ( newAng - ang ) * exp;
+}
 
 void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePosition, const QAngle& eyeAngles )
 {
@@ -410,7 +442,12 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 #if !defined ( CSTRIKE_DLL )
 	// This was causing weapon jitter when rotating in updated CS:S; original Source had this in above InPrediction block  07/14/10
 	// Add lag
-	CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+	switch(m_nViewModelIndex)
+	{
+		case 0:
+			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+			break;
+	}
 #endif
 
 #if defined( CLIENT_DLL )
@@ -425,6 +462,14 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	{
 		g_ClientVirtualReality.OverrideViewModelTransform( vmorigin, vmangles, pWeapon && pWeapon->ShouldUseLargeViewModelVROverride() );
 	}
+
+	switch(m_nViewModelIndex)
+	{
+		case 0:
+			CalcIronsights( vmorigin, vmangles );
+			break;
+	}
+	
 
 	SetLocalOrigin( vmorigin );
 	SetLocalAngles( vmangles );

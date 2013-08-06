@@ -1561,8 +1561,10 @@ private:
 
 	// Handle shot entering water
 	void HandleShotImpactingGlass( const FireBulletsInfo_t &info, const trace_t &tr, const Vector &vecDir, ITraceFilter *pTraceFilter );
+	// Should we go through stuff?
+	void HandleBulletPenetration( const FireBulletsInfo_t &info, const trace_t &tr, const Vector &vecDir, ITraceFilter *pTraceFilter, int TimesPenitrate = 1 );
 
-	// Should we draw bubbles underwater?
+// Should we draw bubbles underwater?
 	bool ShouldDrawUnderwaterBulletBubbles();
 
 	// Computes the tracer start position

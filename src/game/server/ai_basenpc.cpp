@@ -1530,6 +1530,96 @@ void CBaseEntity::HandleShotImpactingGlass( const FireBulletsInfo_t &info,
 }
 
 
+#define MAX_BULLET_PENETRATION 64.0f //TODO: Should we allow the weapon to have it's own max penetration?
+void CBaseEntity::HandleBulletPenetration( const FireBulletsInfo_t &info, 
+	const trace_t &tr, const Vector &vecDir, ITraceFilter *pTraceFilter, int TimesPenitrate )
+{
+//Turn this off for now...
+#if 1 //defined( GAME_DLL )
+	if(info.m_nFlags&FIRE_BULLETS_USEPENITRATION_COUNT)
+		if (!(info.m_iPenetrationCount > 0))
+			return;
+//	if ()
+//		return;
+
+	CEffectData	data;
+
+	data.m_vNormal = tr.plane.normal;
+	data.m_vOrigin = tr.endpos;
+
+	DispatchEffect( "RagdollImpact", data );
+	//surfacedata_t *psurf = physprops->GetSurfaceData(tr.surface.surfaceProps); // I have a weird naming convention...
+	bool bShouldPenetrate = false;
+	float flDeepness = 0.0f;
+	float flMatResistance = 1.0f;
+/*	if( psurf != NULL )// && (psurf->game.material == CHAR_TEX_METAL))
+		switch(psurf->game.material)
+		{
+			//The higher the number, the harder it is for the bullet to get through.
+			case CHAR_TEX_METAL:
+				flMatResistance = 1.5f;
+			case CHAR_TEX_WARPSHIELD:
+				flMatResistance = 4.0f;
+			break;
+			default:
+				flMatResistance = 4.0f;
+		}
+	*/
+	Vector testPos;
+	trace_t	penetrationTrace;
+//	if(info.m_nFlags&FIRE_BULLETS_USEPENITRATION_DEPTH)
+		while ( !bShouldPenetrate && (flDeepness * flMatResistance <= info.m_flPenetrationForce) /*MAX_BULLET_PENETRATION*/ )
+		{
+			flDeepness += 0.1f;
+			// Move through the glass until we're at the other side
+			testPos = tr.endpos + ( vecDir * (flDeepness ) );
+		
+			// Re-trace as if the bullet had passed right through
+			UTIL_TraceLine( testPos, tr.endpos, MASK_SHOT, pTraceFilter, &penetrationTrace );
+
+			// See if we found the surface again
+			if ( penetrationTrace.startsolid || tr.fraction == 0.0f || penetrationTrace.fraction == 1.0f )
+			{
+			}
+			else
+			{
+				bShouldPenetrate = true;
+			}
+		}
+	if(!bShouldPenetrate)
+		return;
+	float flResultDeepness = (flDeepness * flMatResistance);
+	
+
+	//FIXME: This is technically frustrating MultiDamage, but multiple shots hitting multiple targets in one call
+	//		 would do exactly the same anyway...
+
+	// Impact the other side (will look like an exit effect)
+	DoImpactEffect( penetrationTrace, GetAmmoDef()->DamageType(info.m_iAmmoType) );
+
+//	data.m_vNormal = penetrationTrace.plane.normal;
+//	data.m_vOrigin = penetrationTrace.endpos;
+	
+//	DispatchEffect( "GlassImpact", data );
+
+	// Refire the round, as if starting from behind the glass
+	FireBulletsInfo_t behindGlassInfo;
+	behindGlassInfo.m_iShots = 1;
+	behindGlassInfo.m_vecSrc = penetrationTrace.endpos;
+	behindGlassInfo.m_vecDirShooting = vecDir;
+	behindGlassInfo.m_vecSpread = vec3_origin;
+	behindGlassInfo.m_flDistance = info.m_flDistance*( 1.0f - tr.fraction );
+	behindGlassInfo.m_iAmmoType = info.m_iAmmoType;
+	behindGlassInfo.m_iTracerFreq = info.m_iTracerFreq;
+	behindGlassInfo.m_flDamage = info.m_flDamage;
+	behindGlassInfo.m_pAttacker = info.m_pAttacker ? info.m_pAttacker : this;
+	behindGlassInfo.m_nFlags = info.m_nFlags;
+	behindGlassInfo.m_iPenetrationCount = info.m_iPenetrationCount - 1;
+	behindGlassInfo.m_flPenetrationForce = info.m_flPenetrationForce - flResultDeepness;
+	FireBullets( behindGlassInfo );
+#endif
+}
+
 //-----------------------------------------------------------------------------
 // Computes the tracer start position
 //-----------------------------------------------------------------------------

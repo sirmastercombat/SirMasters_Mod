@@ -973,6 +973,7 @@ class CPlayerPickupController : public CBaseEntity
 	DECLARE_CLASS( CPlayerPickupController, CBaseEntity );
 public:
 	void Init( CBasePlayer *pPlayer, CBaseEntity *pObject );
+	void InitRagdoll( CBasePlayer *pPlayer, CBaseEntity *pObject );
 	void Shutdown( bool bThrown = false );
 	bool OnControls( CBaseEntity *pControls ) { return true; }
 	void Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
@@ -1045,8 +1046,8 @@ void CPlayerPickupController::Init( CBasePlayer *pPlayer, CBaseEntity *pObject )
 	IPhysicsObject *pPhysics = pObject->VPhysicsGetObject();
 	
 	Pickup_OnPhysGunPickup( pObject, m_pPlayer, PICKED_UP_BY_PLAYER );
-	
-	m_grabController.AttachEntity( pPlayer, pObject, pPhysics, false, vec3_origin, false );
+
+	m_grabController.AttachEntity( pPlayer, pObject, pPhysics, false, vec3_origin, false ); //Just for the SMOD Lulz
 	// NVNT apply a downward force to simulate the mass of the held object.
 #if defined( WIN32 ) && !defined( _X360 )
 	HapticSetConstantForce(m_pPlayer,clamp(m_grabController.GetLoadWeight()*0.1,1,6)*Vector(0,-1,0));
@@ -1056,7 +1057,70 @@ void CPlayerPickupController::Init( CBasePlayer *pPlayer, CBaseEntity *pObject )
 	m_pPlayer->SetUseEntity( this );
 }
 
+void CPlayerPickupController::InitRagdoll( CBasePlayer *pPlayer, CBaseEntity *pObject )
+{
+	// Holster player's weapon
+	if ( pPlayer->GetActiveWeapon() )
+	{
+		if ( !pPlayer->GetActiveWeapon()->CanHolster() || !pPlayer->GetActiveWeapon()->Holster() )
+		{
+			Shutdown();
+			return;
+		}
+	}
 
+	CHL2_Player *pOwner = (CHL2_Player *)ToBasePlayer( pPlayer );
+	if ( pOwner )
+	{
+		pOwner->EnableSprint( false );
+	}
+
+	// If the target is debris, convert it to non-debris
+	if ( pObject->GetCollisionGroup() == COLLISION_GROUP_DEBRIS )
+	{
+		// Interactive debris converts back to debris when it comes to rest
+		pObject->SetCollisionGroup( COLLISION_GROUP_INTERACTIVE_DEBRIS );
+	}
+
+	// done so I'll go across level transitions with the player
+	SetParent( pPlayer );
+	m_grabController.SetIgnorePitch( false );
+	m_grabController.SetAngleAlignment( DOT_30DEGREE );
+	m_pPlayer = pPlayer;
+	IPhysicsObject *pPhysics = pObject->VPhysicsGetObject();
+	
+	Pickup_OnPhysGunPickup( pObject, m_pPlayer, PICKED_UP_BY_PLAYER );
+	
+	//For Ragdolls
+	 
+	//Create our trace_t class to hold the end result
+	trace_t tr;
+ 
+	//Create Vectors for the start, stop, and direction
+	Vector vecAbsStart, vecAbsEnd, vecDir;
+ 
+	//Take the Player's EyeAngles and turn it into a direction
+	AngleVectors( pPlayer->EyeAngles(), &vecDir );
+ 
+	//Get the Start/End
+	vecAbsStart = pPlayer->EyePosition();
+	vecAbsEnd = vecAbsStart + (vecDir * 64.0f);
+ 
+	//Do the TraceLine, and write our results to our trace_t class, tr.
+	UTIL_TraceLine( vecAbsStart, vecAbsEnd, MASK_ALL, pPlayer, COLLISION_GROUP_INTERACTIVE_DEBRIS, &tr );
+ 
+	//Do something with the end results
+	m_grabController.AttachEntity( pPlayer, pObject, pPhysics, false, tr.endpos, true ); //Just for the SMOD Lulz
+	
+
+	// NVNT apply a downward force to simulate the mass of the held object.
+#if defined( WIN32 ) && !defined( _X360 )
+	HapticSetConstantForce(m_pPlayer,clamp(m_grabController.GetLoadWeight()*0.1,1,6)*Vector(0,-1,0));
+#endif
+	
+	m_pPlayer->m_Local.m_iHideHUD |= HIDEHUD_WEAPONSELECTION;
+	m_pPlayer->SetUseEntity( this );
+}
 //-----------------------------------------------------------------------------
 // Purpose: 
 // Input  : bool - 
@@ -1188,6 +1252,19 @@ void PlayerPickupObject( CBasePlayer *pPlayer, CBaseEntity *pObject )
 	pController->Init( pPlayer, pObject );
 }
 
+void PlayerPickupRagdoll( CBasePlayer *pPlayer, CBaseEntity *pObject )
+{
+	//Don't pick up if we don't have a phys object.
+	if ( pObject->VPhysicsGetObject() == NULL )
+		 return;
+
+	CPlayerPickupController *pController = (CPlayerPickupController *)CBaseEntity::Create( "player_pickup", pObject->GetAbsOrigin(), vec3_angle, pPlayer );
+	
+	if ( !pController )
+		return;
+
+	pController->InitRagdoll( pPlayer, pObject );
+}
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------

@@ -29,7 +29,9 @@ $Project "Client (Episodic)"
 		$File	"hud_chat.cpp"
 		$File	"c_team_objectiveresource.cpp"
 		$File	"c_team_objectiveresource.h"
-
+		$Folder	"SMMOD DLL"
+		{
+		}
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\hl2\basehlcombatweapon_shared.cpp"

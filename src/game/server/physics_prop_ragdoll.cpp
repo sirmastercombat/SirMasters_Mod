@@ -289,9 +289,18 @@ void CRagdollProp::Precache( void )
 
 int CRagdollProp::ObjectCaps()
 {
-	return BaseClass::ObjectCaps() | FCAP_WCEDIT_POSITION;
+	return BaseClass::ObjectCaps() | FCAP_WCEDIT_POSITION | FCAP_IMPULSE_USE;
 }
 
+void CRagdollProp::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value )
+{
+	CBasePlayer *pPlayer = ToBasePlayer( pActivator );
+	if ( pPlayer )
+	{
+
+		pPlayer->PickupObject( this );
+	}
+}
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -397,7 +406,7 @@ void CRagdollProp::OnPhysGunDrop( CBasePlayer *pPhysGunUser, PhysGunDrop_t Reaso
 	m_hPhysicsAttacker = pPhysGunUser;
 	m_flLastPhysicsInfluenceTime = gpGlobals->curtime;
 
-	if( HasPhysgunInteraction( "onpickup", "boogie" ) )
+	if( HasPhysgunInteraction( "onpickup", "boogie" ) &&  (Reason == DROPPED_BY_CANNON || Reason == LAUNCHED_BY_CANNON))
 	{
 		CRagdollBoogie::Create( this, 150, gpGlobals->curtime, 3.0f, SF_RAGDOLL_BOOGIE_ELECTRICAL );
 	}
