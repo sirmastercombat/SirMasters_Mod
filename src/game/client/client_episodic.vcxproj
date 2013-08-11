@@ -554,6 +554,7 @@ exit 1
     <ClInclude Include="ScreenSpaceEffects.h" />
     <ClInclude Include="simple_keys.h" />
     <ClInclude Include="SMMOD\c_weapon_custom.h" />
+    <ClInclude Include="SMMOD\tne_RenderTargets.h" />
     <ClInclude Include="smoke_fog_overlay.h" />
     <ClInclude Include="splinepatch.h" />
     <ClInclude Include="..\..\public\steam\steam_api.h" />
@@ -1228,6 +1229,7 @@ exit 1
     <ClCompile Include="..\..\game\shared\soundenvelope.cpp" />
     <ClCompile Include="..\..\public\SoundParametersInternal.cpp" />
     <ClCompile Include="SMMOD\c_weapon_custom.cpp" />
+    <ClCompile Include="SMMOD\tne_RenderTargets.cpp" />
     <ClCompile Include="splinepatch.cpp" />
     <ClCompile Include="..\..\game\shared\Sprite.cpp" />
     <ClCompile Include="spritemodel.cpp" />

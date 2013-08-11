@@ -15,7 +15,6 @@ public:
 
 	DECLARE_SERVERCLASS();
 	
-	const FileWeaponInfo_t	&GetWpnData( void ) const;
 	void	Precache( void );
 	void	AddViewKick( void );
 	void	ShootBullets( bool isPrimary = true, bool usePrimaryAmmo = true );
@@ -57,6 +56,6 @@ public:
 	void Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 	protected: //Why did I not put this in? I have no idea...
 		CHandle<CMissile>	m_hMissile;
-		FileWeaponInfo_t *m_pCustomWeaponInfo;
 };
+
 #endif	//WEAPONCUSTOM_H

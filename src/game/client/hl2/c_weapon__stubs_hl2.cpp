@@ -36,6 +36,36 @@ STUB_WEAPON_CLASS( weapon_crossbow, WeaponCrossbow, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS( weapon_slam, Weapon_SLAM, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS( weapon_crowbar, WeaponCrowbar, C_BaseHLBludgeonWeapon );
 //STUB_WEAPON_CLASS( weapon_custom1, WeaponCustom, C_HLSelectFireMachineGun );
+CustomWeapon_IMPLEMENT(1)
+CustomWeapon_IMPLEMENT(2)
+CustomWeapon_IMPLEMENT(3)
+CustomWeapon_IMPLEMENT(4)
+CustomWeapon_IMPLEMENT(5)
+CustomWeapon_IMPLEMENT(6)
+CustomWeapon_IMPLEMENT(7)
+CustomWeapon_IMPLEMENT(8)
+CustomWeapon_IMPLEMENT(9)
+CustomWeapon_IMPLEMENT(10)
+CustomWeapon_IMPLEMENT(11)
+CustomWeapon_IMPLEMENT(12)
+CustomWeapon_IMPLEMENT(13)
+CustomWeapon_IMPLEMENT(14)
+CustomWeapon_IMPLEMENT(15)
+CustomWeapon_IMPLEMENT(16)
+CustomWeapon_IMPLEMENT(17)
+CustomWeapon_IMPLEMENT(18)
+CustomWeapon_IMPLEMENT(19)
+CustomWeapon_IMPLEMENT(20)
+CustomWeapon_IMPLEMENT(21)
+CustomWeapon_IMPLEMENT(22)
+CustomWeapon_IMPLEMENT(23)
+CustomWeapon_IMPLEMENT(24)
+CustomWeapon_IMPLEMENT(25)
+CustomWeapon_IMPLEMENT(26)
+CustomWeapon_IMPLEMENT(27)
+CustomWeapon_IMPLEMENT(28)
+CustomWeapon_IMPLEMENT(29)
+CustomWeapon_IMPLEMENT(30)
 #ifdef HL2_EPISODIC
 STUB_WEAPON_CLASS( weapon_hopwire, WeaponHopwire, C_BaseHLCombatWeapon );
 //STUB_WEAPON_CLASS( weapon_proto1, WeaponProto1, C_BaseHLCombatWeapon );

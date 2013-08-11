@@ -1916,6 +1916,9 @@
     <ClInclude Include="SMMOD\c_weapon_custom.h">
       <Filter>Source Files\SMMOD</Filter>
     </ClInclude>
+    <ClInclude Include="SMMOD\tne_RenderTargets.h">
+      <Filter>Source Files\SMMOD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -3446,6 +3449,9 @@
       <Filter>Tool Framework</Filter>
     </ClCompile>
     <ClCompile Include="SMMOD\c_weapon_custom.cpp">
+      <Filter>Source Files\SMMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="SMMOD\tne_RenderTargets.cpp">
       <Filter>Source Files\SMMOD</Filter>
     </ClCompile>
   </ItemGroup>

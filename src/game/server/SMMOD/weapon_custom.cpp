@@ -26,12 +26,6 @@
 
 extern ConVar    sk_plr_dmg_smg1_grenade;	
 
-
-const FileWeaponInfo_t &CWeaponCustom::GetWpnData( void ) const
-{
-
-	return *m_pCustomWeaponInfo;
-}
 //LINK_ENTITY_TO_CLASS( weapon_custom1, CWeaponCustom ); //I give up.
 //PRECACHE_WEAPON_REGISTER(weapon_custom1);
 
@@ -59,16 +53,6 @@ CWeaponCustom::CWeaponCustom( )
 	m_fMaxRange1		= 1400;
 
 	m_bAltFiresUnderwater = false;
-	m_pCustomWeaponInfo = new FileWeaponInfo_t();
-		
-	char sz[128];
-	Q_snprintf( sz, sizeof( sz ), "scripts/weapon_custom/%s", this->m_iClassname );
-	KeyValues *pKV  = ReadEncryptedKVFile( filesystem, sz, NULL, false ); //CUSTOM WEAPONS DO NOT HAVE CTX FILES!
-	char szName[128];
-	Q_snprintf( szName, sizeof( szName ), "%s", this->m_iClassname );
-	m_pCustomWeaponInfo->Parse( pKV, szName );
-
-	pKV->deleteThis();
 
 }
 
@@ -596,3 +580,43 @@ const WeaponProficiencyInfo_t *CWeaponCustom::GetProficiencyValues()
 
 	return proficiencyTable;
 }
+
+#define CustomWeaponAdd( num )										\
+class CWeaponCustom##num : public CWeaponCustom						\
+{																	\
+	public:															\
+	DECLARE_CLASS( CWeaponCustom##num, CWeaponCustom );				\
+};																	\
+LINK_ENTITY_TO_CLASS( weapon_custom##num, CWeaponCustom##num );		\
+PRECACHE_WEAPON_REGISTER(weapon_custom##num);						\
+//._. Cheap, but effective.
+CustomWeaponAdd( 1 )
+CustomWeaponAdd( 2 )
+CustomWeaponAdd( 3 )
+CustomWeaponAdd( 4 )
+CustomWeaponAdd( 5 )
+CustomWeaponAdd( 6 )
+CustomWeaponAdd( 7 )
+CustomWeaponAdd( 8 )
+CustomWeaponAdd( 9 )
+CustomWeaponAdd( 10 )
+CustomWeaponAdd( 11 )
+CustomWeaponAdd( 12 )
+CustomWeaponAdd( 13 )
+CustomWeaponAdd( 14 )
+CustomWeaponAdd( 15 )
+CustomWeaponAdd( 16 )
+CustomWeaponAdd( 17 )
+CustomWeaponAdd( 18 )
+CustomWeaponAdd( 19 )
+CustomWeaponAdd( 20 )
+CustomWeaponAdd( 21 )
+CustomWeaponAdd( 22 )
+CustomWeaponAdd( 23 )
+CustomWeaponAdd( 24 )
+CustomWeaponAdd( 25 )
+CustomWeaponAdd( 26 )
+CustomWeaponAdd( 27 )
+CustomWeaponAdd( 28 )
+CustomWeaponAdd( 29 )
+CustomWeaponAdd( 30 )

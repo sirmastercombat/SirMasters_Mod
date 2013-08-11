@@ -430,24 +430,34 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 		if ( !prediction->InPrediction() )
 #endif
 		{
-			// add weapon-specific bob 
-			pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
+		switch(m_nViewModelIndex)
+		{
+			case 0:
+				if(!pWeapon->IsIronsighted())
+					pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
+				break;
+		}
 #if defined ( CSTRIKE_DLL )
 			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 #endif
 		}
 	}
 	// Add model-specific bob even if no weapon associated (for head bob for off hand models)
-	AddViewModelBob( owner, vmorigin, vmangles );
+
 #if !defined ( CSTRIKE_DLL )
 	// This was causing weapon jitter when rotating in updated CS:S; original Source had this in above InPrediction block  07/14/10
 	// Add lag
-	switch(m_nViewModelIndex)
-	{
-		case 0:
-			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
-			break;
-	}
+	if ( pWeapon != NULL )
+		switch(m_nViewModelIndex)
+		{
+			case 0:
+				if(!pWeapon->IsIronsighted())
+				{
+					AddViewModelBob( owner, vmorigin, vmangles );
+					CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+				}
+				break;
+		}
 #endif
 
 #if defined( CLIENT_DLL )
@@ -462,13 +472,14 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	{
 		g_ClientVirtualReality.OverrideViewModelTransform( vmorigin, vmangles, pWeapon && pWeapon->ShouldUseLargeViewModelVROverride() );
 	}
-
-	switch(m_nViewModelIndex)
-	{
-		case 0:
-			CalcIronsights( vmorigin, vmangles );
-			break;
-	}
+	
+	if ( pWeapon != NULL )
+		switch(m_nViewModelIndex)
+		{
+			case 0:
+				CalcIronsights( vmorigin, vmangles );
+				break;
+		}
 	
 
 	SetLocalOrigin( vmorigin );
@@ -511,6 +522,12 @@ float g_fMaxViewModelLag = 1.5f;
 
 void CBaseViewModel::CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& original_angles )
 {
+	CBaseCombatWeapon *pWeapon = GetOwningWeapon();
+ 
+	if ( !pWeapon )
+		return;
+	if(pWeapon->IsIronsighted())
+		return;
 	Vector vOriginalOrigin = origin;
 	QAngle vOriginalAngles = angles;
 

@@ -13,15 +13,6 @@ public:
 	//DECLARE_PREDICTABLE();									
 	DECLARE_CLIENTCLASS();									
 	C_WeaponCustom() {
-			
-		char sz[128];
-		Q_snprintf( sz, sizeof( sz ), "scripts/weapon_custom/%s", this->m_iClassname );
-		KeyValues *pKV  = ReadEncryptedKVFile( filesystem, sz, NULL, false ); //CUSTOM WEAPONS DO NOT HAVE CTX FILES!
-		char szName[128];
-		Q_snprintf( szName, sizeof( szName ), "%s", this->m_iClassname );
-		m_pCustomWeaponInfo->Parse( pKV, szName );
-
-		pKV->deleteThis();
 	};	
 	const FileWeaponInfo_t	&GetWpnData( void ) const;
 	FileWeaponInfo_t *m_pCustomWeaponInfo;

@@ -35,5 +35,7 @@
 	STUB_WEAPON_CLASS_IMPLEMENT( entityName, C_##className );		\
 	IMPLEMENT_CLIENTCLASS_DT( C_##className, DT_##className, C##className )	\
 	END_RECV_TABLE()
-
+//I am cheap cheap. <_>
+#define CustomWeapon_IMPLEMENT( num )												\
+	STUB_WEAPON_CLASS( weapon_custom##num, WeaponCustom##num, C_HLSelectFireMachineGun );
 #endif // C_WEAPON__STUBS_H
