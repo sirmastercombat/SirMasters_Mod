@@ -22,6 +22,9 @@
     <Filter Include="Source Files\HL2 DLL\unused">
       <UniqueIdentifier>{A52C827A-EB95-73A5-F031-C0395B5E2677}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HLSS DLL">
+      <UniqueIdentifier>{19A406D8-C9F1-2EF5-0B6B-AB09F73A6052}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Precompiled Header">
       <UniqueIdentifier>{A7D26A13-21F4-C6B5-5922-8A4FB05AF07D}</UniqueIdentifier>
     </Filter>
@@ -1763,6 +1766,21 @@
     <ClInclude Include="hl2\weapon_flaregun.h">
       <Filter>Source Files\HL2 DLL\unused</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\game\server\HLSS\npc_aliencontroller.h">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\server\HLSS\npc_aliengrunt.h">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\server\HLSS\weapon_bee.h">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\server\HLSS\weapon_fireball.h">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\server\SMMOD\mapadd.h">
+      <Filter>Source Files\SMMOD DLL</Filter>
+    </ClInclude>
     <ClInclude Include="plasma.h">
       <Filter>Source Files\temporary entities</Filter>
     </ClInclude>
@@ -3340,8 +3358,23 @@
     <ClCompile Include="hl2\weapon_flaregun.cpp">
       <Filter>Source Files\HL2 DLL\unused</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\game\server\HLSS\npc_aliencontroller.cpp">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\server\HLSS\npc_aliengrunt.cpp">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\server\HLSS\weapon_bee.cpp">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\server\HLSS\weapon_fireball.cpp">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files\Precompiled Header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\server\SMMOD\mapadd.cpp">
+      <Filter>Source Files\SMMOD DLL</Filter>
     </ClCompile>
     <ClCompile Include="basetempentity.cpp">
       <Filter>Source Files\temporary entities</Filter>

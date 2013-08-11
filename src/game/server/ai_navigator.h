@@ -418,7 +418,7 @@ public:
 	void				SimplifyFlyPath( unsigned collisionMask, const CBaseEntity *pTarget, 
 										 float strictPointTolerance = 32.0, float blockTolerance = 0.0,
 										 AI_NpcBlockHandling_t blockHandling = AISF_BLOCK);
-	bool				SimplifyFlyPath(  const AI_ProgressFlyPathParams_t &params );
+	bool				SimplifyFlyPath(  const AI_ProgressFlyPathParams_t &params, float flOffset = 0.0f  );
 	
 	bool				CanFitAtNode(int nodeNum, unsigned int collisionMask = MASK_NPCSOLID_BRUSHONLY); 
 	float				MovementCost( int moveType, Vector &vecStart, Vector &vecEnd );

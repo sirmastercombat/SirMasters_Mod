@@ -65,6 +65,10 @@ extern ConVar replay_rendersetting_renderglow;
 #include "econ_item_description.h"
 #endif
 
+#ifdef CLIENT_DLL
+#include "glow_outline_effect.h"
+#endif
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -752,6 +756,10 @@ bool ClientModeShared::DoPostScreenSpaceEffects( const CViewSetup *pSetup )
 			return false;
 	}
 #endif 
+	#ifdef GLOWS_ENABLE
+		CMatRenderContextPtr pRenderContext( materials );
+		g_GlowObjectManager.RenderGlowEffects( pSetup, 0 /*GetSplitScreenPlayerSlot()*/ );
+	#endif // GLOWS_ENABLE
 	return true;
 }
 

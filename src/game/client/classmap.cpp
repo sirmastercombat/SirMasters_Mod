@@ -1,4 +1,4 @@
-//========= Copyright Valve Corporation, All rights reserved. ============//
+//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -17,8 +17,14 @@ public:
 	classentry_t()
 	{
 		mapname[ 0 ] = 0;
+
+		classname[ 0 ] = 0;
+
 		factory = 0;
 		size = -1;
+
+		scripted = false;
+
 	}
 
 	char const *GetMapName() const
@@ -31,17 +37,41 @@ public:
 		Q_strncpy( mapname, newname, sizeof( mapname ) );
 	}
 
+
+	char const *GetClassName() const
+	{
+		return classname;
+	}
+
+	void SetClassName( char const *newname )
+	{
+		Q_strncpy( classname, newname, sizeof( classname ) );
+	}
+
+
 	DISPATCHFUNCTION	factory;
 	int					size;
+
+	bool				scripted;
+
 private:
 	char				mapname[ 40 ];
+
+	char				classname[ 40 ];
+
 };
 
 class CClassMap : public IClassMap
 {
 public:
-	virtual void			Add( const char *mapname, const char *classname, int size, DISPATCHFUNCTION factory /*= 0*/ );
+
+	virtual void			Add( const char *mapname, const char *classname, int size, DISPATCHFUNCTION factory /*= 0*/, bool scripted );
+	virtual void			RemoveAllScripted( void );
+
 	virtual const char		*Lookup( const char *classname );
+
+	virtual DISPATCHFUNCTION FindFactory( const char *classname );
+
 	virtual C_BaseEntity	*CreateEntity( const char *mapname );
 	virtual int				GetClassSize( const char *classname );
 
@@ -55,38 +85,89 @@ IClassMap& GetClassMap( void )
 	return g_Classmap;
 }
 
-void CClassMap::Add( const char *mapname, const char *classname, int size, DISPATCHFUNCTION factory = 0 )
+void CClassMap::Add( const char *mapname, const char *classname, int size, DISPATCHFUNCTION factory = 0, bool scripted = false )
 {
-	const char *map = Lookup( classname );
-	if ( map && !Q_strcasecmp( mapname, map ) )
-		return;
 
-	if ( map )
+	for ( int i=m_ClassDict.First(); i != m_ClassDict.InvalidIndex(); i=m_ClassDict.Next( i ) )
 	{
-		int index = m_ClassDict.Find( classname );
-		Assert( index != m_ClassDict.InvalidIndex() );
-		m_ClassDict.RemoveAt( index );
+		classentry_t *lookup = &m_ClassDict[ i ];
+		if ( !lookup )
+			continue;
+
+		if ( !Q_stricmp( lookup->GetMapName(), mapname ) )
+		{
+			m_ClassDict.RemoveAt( i );
+		}
 	}
+
 
 	classentry_t element;
 	element.SetMapName( mapname );
 	element.factory = factory;
 	element.size = size;
-	m_ClassDict.Insert( classname, element );
+
+	element.SetClassName( classname );
+	element.scripted = scripted;
+	m_ClassDict.Insert( mapname, element );
+
 }
+
+void CClassMap::RemoveAllScripted( void )
+{
+	int c = m_ClassDict.Count();
+	int i;
+
+	for ( i = 0; i < c; i++ )
+	{
+		classentry_t *lookup = &m_ClassDict[ i ];
+		if ( !lookup )
+			continue;
+
+		if ( lookup->scripted )
+		{
+			m_ClassDict.RemoveAt( i );
+		}
+	}
+}
+
 
 const char *CClassMap::Lookup( const char *classname )
 {
-	unsigned short index;
-	static classentry_t lookup; 
+	int c = m_ClassDict.Count();
+	int i;
 
-	index = m_ClassDict.Find( classname );
-	if ( index == m_ClassDict.InvalidIndex() )
-		return NULL;
+	for ( i = 0; i < c; i++ )
+	{
+		classentry_t *lookup = &m_ClassDict[ i ];
+		if ( !lookup )
+			continue;
 
-	lookup = m_ClassDict.Element( index );
-	return lookup.GetMapName();
+		if ( Q_stricmp( lookup->GetClassName(), classname ) )
+			continue;
+
+		return lookup->GetMapName();
+	}
+
+	return NULL;
 }
+
+DISPATCHFUNCTION CClassMap::FindFactory( const char *classname )
+{
+	for ( int i=m_ClassDict.First(); i != m_ClassDict.InvalidIndex(); i=m_ClassDict.Next( i ) )
+	{
+		classentry_t *lookup = &m_ClassDict[ i ];
+		if ( !lookup )
+			continue;
+
+		if ( Q_stricmp( lookup->GetMapName(), classname ) )
+			continue;
+
+		return lookup->factory;
+	}
+
+	return NULL;
+}
+
 
 C_BaseEntity *CClassMap::CreateEntity( const char *mapname )
 {

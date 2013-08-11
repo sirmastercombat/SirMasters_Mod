@@ -57,7 +57,7 @@
       <AdditionalOptions> /MP</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILER_MSVC32;LIBNAME=tier1;RAD_TELEMETRY_DISABLED;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;TIER1_STATIC_LIB;VPCGAMECAPS=EPISODIC;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\tier1;_DLL_EXT=.dll;VPCGAME=episodic</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILER_MSVC32;LIBNAME=tier1;RAD_TELEMETRY_DISABLED;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;TIER1_STATIC_LIB;VPCGAMECAPS=VALVE;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\tier1;_DLL_EXT=.dll;VPCGAME=valve</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -116,7 +116,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILER_MSVC32;LIBNAME=tier1;RAD_TELEMETRY_DISABLED;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;TIER1_STATIC_LIB;VPCGAMECAPS=EPISODIC;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\tier1;_DLL_EXT=.dll;VPCGAME=episodic</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILER_MSVC32;LIBNAME=tier1;RAD_TELEMETRY_DISABLED;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;TIER1_STATIC_LIB;VPCGAMECAPS=VALVE;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\tier1;_DLL_EXT=.dll;VPCGAME=valve</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>

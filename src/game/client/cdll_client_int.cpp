@@ -843,6 +843,18 @@ extern IGameSystem *ViewportClientSystem();
 
 //-----------------------------------------------------------------------------
 ISourceVirtualReality *g_pSourceVR = NULL;
+void GetPrimaryModDirectory( char *pcModPath, int nSize )
+{
+	g_pFullFileSystem->GetSearchPath( "MOD", false, pcModPath, nSize );
+
+	// It's possible that we have multiple MOD directories if there is DLC installed. If that's the case get the last one
+	// in the semi-colon delimited list
+	char *pSemi = V_strrchr( pcModPath, ';');
+	if ( pSemi )
+	{
+		V_strncpy( pcModPath, ++pSemi, MAX_PATH );
+	}
+}
 
 // Purpose: Called when the DLL is first loaded.
 // Input  : engineFactory - 
@@ -955,6 +967,7 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 	{
 		return false;
 	}
+
 
 	if ( CommandLine()->FindParm( "-textmode" ) )
 		g_bTextMode = true;

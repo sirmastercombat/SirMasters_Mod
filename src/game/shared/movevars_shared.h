@@ -50,4 +50,9 @@ extern ConVar r_AirboatViewDampenFreq;
 extern ConVar r_AirboatViewDampenDamp;
 extern ConVar r_AirboatViewZHeight;
 
+// Manhack convars
+extern ConVar r_ManhackViewDampenFreq;
+extern ConVar r_ManhackViewDampenDamp;
+extern ConVar r_ManhackViewZHeight;
+
 #endif // MOVEVARS_SHARED_H

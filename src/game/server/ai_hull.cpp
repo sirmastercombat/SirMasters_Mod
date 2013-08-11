@@ -47,6 +47,7 @@ ai_hull_t  Tiny_Centered_Hull	(bits_TINY_CENTERED_HULL,	"TINY_CENTERED_HULL",	Ve
 ai_hull_t  Large_Hull			(bits_LARGE_HULL,			"LARGE_HULL",			Vector(-40,-40,   0),	Vector(40, 40, 100),	Vector(-40,-40, 0),		Vector(40, 40, 100) );
 ai_hull_t  Large_Centered_Hull	(bits_LARGE_CENTERED_HULL,	"LARGE_CENTERED_HULL",	Vector(-38,-38, -38),	Vector(38, 38, 38),		Vector(-30,-30,-30),	Vector(30, 30, 30) );
 ai_hull_t  Medium_Tall_Hull		(bits_MEDIUM_TALL_HULL,		"MEDIUM_TALL_HULL",		Vector(-18,-18,   0),	Vector(18, 18, 100),	Vector(-12,-12, 0),	    Vector(12, 12, 100) );
+ai_hull_t  Human_Hull_Centered	(bits_HUMAN_CENTERED,		"HUMAN_HULL_CENTERED",	Vector(-16,-16, 0),		Vector(16, 16, 35),		Vector(-8,-8,0),		Vector(8, 8, 35) );
 #endif//HL1_DLL
 
 //
@@ -64,6 +65,7 @@ ai_hull_t*	hull[NUM_HULLS] =
 	&Large_Hull,
 	&Large_Centered_Hull,
 	&Medium_Tall_Hull,
+	&Human_Hull_Centered,
 };
 
 

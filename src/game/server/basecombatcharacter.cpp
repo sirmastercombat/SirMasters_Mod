@@ -89,7 +89,8 @@ BEGIN_DATADESC( CBaseCombatCharacter )
 	DEFINE_FIELD( m_bloodColor, FIELD_INTEGER ),
 	DEFINE_FIELD( m_iDamageCount, FIELD_INTEGER ),
 	
-	DEFINE_FIELD( m_flFieldOfView, FIELD_FLOAT ),
+	//DEFINE_FIELD( m_flFieldOfView, FIELD_FLOAT ),
+	DEFINE_KEYFIELD( m_flFieldOfView,	FIELD_FLOAT,	"FieldOfView" ),
 	DEFINE_FIELD( m_HackedGunPos, FIELD_VECTOR ),
 	DEFINE_KEYFIELD( m_RelationshipString, FIELD_STRING, "Relationship" ),
 
@@ -107,7 +108,7 @@ BEGIN_DATADESC( CBaseCombatCharacter )
 	DEFINE_FIELD( m_bPreventWeaponPickup, FIELD_BOOLEAN ),
 
 	DEFINE_INPUTFUNC( FIELD_VOID, "KilledNPC", InputKilledNPC ),
-
+	DEFINE_INPUTFUNC( FIELD_VOID, "SetFov", InputSetFov ),
 END_DATADESC()
 
 
@@ -778,7 +779,6 @@ void CBaseCombatCharacter::Spawn( void )
 
 	// not standing on a nav area yet
 	ClearLastKnownArea();
-
 }
 
 //-----------------------------------------------------------------------------
@@ -3323,7 +3323,12 @@ void CBaseCombatCharacter::InputKilledNPC( inputdata_t &inputdata )
 {
 	OnKilledNPC( inputdata.pActivator ? inputdata.pActivator->MyCombatCharacterPointer() : NULL );
 }
-
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+void CBaseCombatCharacter::InputSetFov( inputdata_t &inputdata )
+{
+	m_flFieldOfView = (cos(0.5 * inputdata.value.Float()));
+}
 //-----------------------------------------------------------------------------
 // Purpose: Overload our muzzle flash and send it to any actively held weapon
 //-----------------------------------------------------------------------------

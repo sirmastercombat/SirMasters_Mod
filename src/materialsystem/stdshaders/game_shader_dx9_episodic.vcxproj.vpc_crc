@@ -1,0 +1,15 @@
+[vpc crc file version 2]
+0f234c44 C:\SourceSDK.Source_Code\SirMasters_Mod\src\devtools\bin\vpc.exe
+_Nc_/vpcgame:valve_
+1ce8cad2 game_shader_dx9_episodic.vpc
+0d783ef5 ..\..\materialsystem\stdshaders\game_shader_dx9_base.vpc
+413a9105 ..\..\vpc_scripts\source_dll_base.vpc
+0426f692 ..\..\vpc_scripts\source_base.vpc
+0c44e96f ..\..\vpc_scripts\source_dll_win32_base.vpc
+351c8228 ..\..\vpc_scripts\version.vpc
+846102f0 ..\..\vpc_scripts\loadaddress.vpc
+fdacd51c ..\..\vpc_scripts\source_dll_win32_debug.vpc
+5f05ebc3 ..\..\vpc_scripts\source_dll_win32_release.vpc
+ba87b758 ..\..\vpc_scripts\source_win32_base.vpc
+18ccc137 ..\..\vpc_scripts\source_video_base.vpc
+48b3bb32 ..\..\vpc_scripts\definitions\win32_2010.def

@@ -34,14 +34,23 @@
     <Filter Include="Source Files\HL2 DLL">
       <UniqueIdentifier>{3C43D38A-46AF-2183-A5E5-44383B1D2652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HLSS DLL">
+      <UniqueIdentifier>{19A406D8-C9F1-2EF5-0B6B-AB09F73A6052}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Precompiled Header">
       <UniqueIdentifier>{A7D26A13-21F4-C6B5-5922-8A4FB05AF07D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shader Editor">
+      <UniqueIdentifier>{EDD5B08E-C21A-8D29-AB03-C0A368D5A4DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shader Editor\Header Files">
+      <UniqueIdentifier>{7C6777E8-0E77-5282-048F-BB675EBD7C2E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shader Editor\Implementation Files">
+      <UniqueIdentifier>{429F6B8F-2AE9-806D-8D3C-EABC9174354B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Sixense">
       <UniqueIdentifier>{5595354B-BE1B-8C7C-B3CB-72257228B6D3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\SMMOD DLL">
-      <UniqueIdentifier>{F2AF5C54-CF60-0BBB-55EE-AADE8E82ABA4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Temporary Entities">
       <UniqueIdentifier>{9EECF4A3-83FE-A929-1B71-69EABF89B7EA}</UniqueIdentifier>
@@ -51,6 +60,9 @@
     </Filter>
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SMMOD">
+      <UniqueIdentifier>{f80b1306-e13b-43a6-89e5-54285125c8d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1874,6 +1886,18 @@
     <ClInclude Include="..\..\game\shared\episodic\npc_advisor_shared.h">
       <Filter>Source Files\HL2 DLL</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\game\client\ShaderEditor\ISEdit_ModelRender.h">
+      <Filter>Source Files\Shader Editor\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\client\ShaderEditor\IVShaderEditor.h">
+      <Filter>Source Files\Shader Editor\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\client\ShaderEditor\SEdit_ModelRender.h">
+      <Filter>Source Files\Shader Editor\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\client\ShaderEditor\ShaderEditorSystem.h">
+      <Filter>Source Files\Shader Editor\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="sixense\in_sixense.h">
       <Filter>Source Files\Sixense</Filter>
     </ClInclude>
@@ -1888,6 +1912,9 @@
     </ClInclude>
     <ClInclude Include="toolframework_client.h">
       <Filter>Tool Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="SMMOD\c_weapon_custom.h">
+      <Filter>Source Files\SMMOD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3199,8 +3226,17 @@
     <ClCompile Include="hl2\vgui_rootpanel_hl2.cpp">
       <Filter>Source Files\HL2 DLL</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\game\client\HLSS\c_npc_aliencontroller.cpp">
+      <Filter>Source Files\HLSS DLL</Filter>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files\Precompiled Header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\client\ShaderEditor\SEdit_ModelRender.cpp">
+      <Filter>Source Files\Shader Editor\Implementation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\client\ShaderEditor\ShaderEditorSystem.cpp">
+      <Filter>Source Files\Shader Editor\Implementation Files</Filter>
     </ClCompile>
     <ClCompile Include="sixense\in_sixense.cpp">
       <Filter>Source Files\Sixense</Filter>
@@ -3408,6 +3444,9 @@
     </ClCompile>
     <ClCompile Include="toolframework_client.cpp">
       <Filter>Tool Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="SMMOD\c_weapon_custom.cpp">
+      <Filter>Source Files\SMMOD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -166,7 +166,7 @@ void CGlowObjectManager::ApplyEntityGlowEffects( const CViewSetup *pSetup, int n
 	float flSavedBlend = render->GetBlend();
 
 	// Set alpha to 0 so we don't touch any color pixels
-	render->SetBlend( 0.0f );
+//	render->SetBlend( 0.0f );
 	pRenderContext->OverrideDepthEnable( true, false );
 
 	int iNumGlowObjects = 0;
@@ -285,8 +285,8 @@ void CGlowObjectManager::ApplyEntityGlowEffects( const CViewSetup *pSetup, int n
 		IMaterial *pMatHaloAddToScreen = materials->FindMaterial( "dev/halo_add_to_screen", TEXTURE_GROUP_OTHER, true );
 
 		// Do not fade the glows out at all (weight = 1.0)
-		IMaterialVar *pDimVar = pMatHaloAddToScreen->FindVar( "$C0_X", NULL );
-		pDimVar->SetFloatValue( 1.0f );
+//		IMaterialVar *pDimVar = pMatHaloAddToScreen->FindVar( "$C0_X", NULL );
+	//	pDimVar->SetFloatValue( 1.0f );
 
 		// Set stencil state
 		ShaderStencilState_t stencilState;

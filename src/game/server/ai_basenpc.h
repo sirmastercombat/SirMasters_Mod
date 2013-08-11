@@ -661,7 +661,7 @@ public:
 	//
 	//-----------------------------------------------------
 	
-	void				SetSchedule( CAI_Schedule *pNewSchedule );
+	virtual void		SetSchedule( CAI_Schedule *pNewSchedule, bool DontClearGoal = false );
 	bool				SetSchedule( int localScheduleID );
 	
 	void				SetDefaultFailSchedule( int failSchedule )	{ m_failSchedule = failSchedule; }

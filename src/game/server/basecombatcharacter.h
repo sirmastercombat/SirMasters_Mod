@@ -288,6 +288,7 @@ public:
 
 	// Killed a character
 	void InputKilledNPC( inputdata_t &inputdata );
+	void InputSetFov( inputdata_t &inputdata );
 	virtual void OnKilledNPC( CBaseCombatCharacter *pKilled ) {}; 
 
 	// Exactly one of these happens immediately after killed (gibbed may happen later when the corpse gibs)
@@ -418,7 +419,8 @@ public:
 	void				RemoveGlowEffect( void );
 	bool				IsGlowEffectActive( void );
 #endif // GLOWS_ENABLE
-
+	
+	float		m_flFieldOfView;		// cosine of field of view for this character
 #ifdef INVASION_DLL
 public:
 
@@ -473,14 +475,12 @@ protected:
 	// -------------------
 	// combat ability data
 	// -------------------
-	float		m_flFieldOfView;		// cosine of field of view for this character
 	Vector		m_HackedGunPos;			// HACK until we can query end of gun
 	string_t	m_RelationshipString;	// Used to load up relationship keyvalues
 	float		m_impactEnergyScale;// scale the amount of energy used to calculate damage this ent takes due to physics
 
 public:
 	static int					GetInteractionID();	// Returns the next interaction #
-
 protected:
 	// Visibility-related stuff
 	bool ComputeLOS( const Vector &vecEyePosition, const Vector &vecTarget ) const;

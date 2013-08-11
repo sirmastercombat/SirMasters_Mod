@@ -564,7 +564,18 @@ EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CServerGameDLL, IServerGameDLL, INTERFACEVERSI
 
 // When bumping the version to this interface, check that our assumption is still valid and expose the older version in the same way
 COMPILE_TIME_ASSERT( INTERFACEVERSION_SERVERGAMEDLL_INT == 9 );
+void GetPrimaryModDirectory( char *pcModPath, int nSize )
+{
+	g_pFullFileSystem->GetSearchPath( "MOD", false, pcModPath, nSize );
 
+	// It's possible that we have multiple MOD directories if there is DLC installed. If that's the case get the last one
+	// in the semi-colon delimited list
+	char *pSemi = V_strrchr( pcModPath, ';');
+	if ( pSemi )
+	{
+		V_strncpy( pcModPath, ++pSemi, MAX_PATH );
+	}
+}
 bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory, 
 		CreateInterfaceFn physicsFactory, CreateInterfaceFn fileSystemFactory, 
 		CGlobalVars *pGlobals)

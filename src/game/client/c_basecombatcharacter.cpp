@@ -81,6 +81,11 @@ void C_BaseCombatCharacter::OnDataChanged( DataUpdateType_t updateType )
 	{
 		UpdateGlowEffect();
 	}
+
+	if ( updateType == DATA_UPDATE_CREATED )
+	{
+		SetNextClientThink( CLIENT_THINK_ALWAYS );
+	}
 #endif // GLOWS_ENABLE
 }
 

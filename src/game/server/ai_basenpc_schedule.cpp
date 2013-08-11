@@ -158,7 +158,7 @@ bool CAI_BaseNPC::SetSchedule( int localScheduleID )
 // to 0
 //=========================================================
 #define SCHEDULE_HISTORY_SIZE	10
-void CAI_BaseNPC::SetSchedule( CAI_Schedule *pNewSchedule )
+void CAI_BaseNPC::SetSchedule( CAI_Schedule *pNewSchedule, bool DontClearGoal )
 {
 	Assert( pNewSchedule != NULL );
 	

@@ -22,6 +22,7 @@
 	#include "globalstate.h"
 	#include "ai_basenpc.h"
 	#include "weapon_physcannon.h"
+	#include "SMMOD/mapadd.h"
 #endif
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -279,6 +280,14 @@ ConVar  alyx_darkness_force( "alyx_darkness_force", "0", FCVAR_CHEAT | FCVAR_REP
 	//-----------------------------------------------------------------------------
 	void CHalfLife2::PlayerSpawn( CBasePlayer *pPlayer )
 	{
+		CMapAdd *pMapadd = GetMapAddEntity();
+		char szMapadd[128];
+		Q_snprintf( szMapadd, sizeof( szMapadd ), "mapadd/%s.txt", gpGlobals->mapname );
+		if(!pMapadd)
+		{
+			pMapadd = CreateMapAddEntity();
+			pMapadd->RunLabel(szMapadd, "Init");
+		}
 	}
 
 	//-----------------------------------------------------------------------------
@@ -1871,6 +1880,9 @@ CAmmoDef *GetAmmoDef()
 		def.AddAmmoType("CombineHeavyCannon",	DMG_BULLET,				TRACER_LINE,			40,	40, NULL, 10 * 750 * 12, AMMO_FORCE_DROP_IF_CARRIED ); // hit like a 10 kg weight at 750 ft/s
 		def.AddAmmoType("ammo_proto1",			DMG_BULLET,				TRACER_LINE,			0, 0, 10, 0, 0 );
 #endif // HL2_EPISODIC
+				//TERO: Define the manhack ammo
+		def.AddAmmoType("Manhack",		DMG_CLUB, TRACER_NONE, NULL, NULL, 3, 0, 0);
+		def.AddAmmoType("ManhacksOnline",	DMG_CLUB, TRACER_NONE, NULL, NULL, 3, 0, 0 );
 	}
 
 	return &def;

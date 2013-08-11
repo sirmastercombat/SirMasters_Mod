@@ -1,6 +1,6 @@
 [vpc crc file version 2]
 0f234c44 C:\SourceSDK.Source_Code\SirMasters_Mod\src\devtools\bin\vpc.exe
-_Nc_/vpcgame:episodic_
+_Nc_/vpcgame:valve_
 69e6d06a mathlib.vpc
 0b10632f ..\vpc_scripts\source_lib_base.vpc
 0426f692 ..\vpc_scripts\source_base.vpc

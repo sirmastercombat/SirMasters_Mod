@@ -50,10 +50,23 @@ $Project "Server (Episodic)"
 		
 		$Folder	"SMMOD DLL"
 		{
-			$File	"$SRCDIR\game\server\weapon_custom.cpp"
-			$File	"$SRCDIR\game\server\weapon_custom.h"
+			$File	"$SRCDIR\game\server\SMMOD\weapon_custom.cpp"
+			$File	"$SRCDIR\game\server\SMMOD\weapon_custom.h"
+			$File	"$SRCDIR\game\server\SMMOD\mapadd.cpp"
+			$File	"$SRCDIR\game\server\SMMOD\mapadd.h"
 		}
 		
+		$Folder	"HLSS DLL"
+		{
+			$File	"$SRCDIR\game\server\HLSS\npc_aliencontroller.cpp"
+			$File	"$SRCDIR\game\server\HLSS\npc_aliencontroller.h"
+			$File	"$SRCDIR\game\server\HLSS\npc_aliengrunt.cpp"
+			$File	"$SRCDIR\game\server\HLSS\npc_aliengrunt.h"
+			$File	"$SRCDIR\game\server\HLSS\weapon_bee.cpp"
+			$File	"$SRCDIR\game\server\HLSS\weapon_bee.h"
+			$File	"$SRCDIR\game\server\HLSS\weapon_fireball.cpp"
+			$File	"$SRCDIR\game\server\HLSS\weapon_fireball.h"
+		}
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\episodic\achievements_ep1.cpp"

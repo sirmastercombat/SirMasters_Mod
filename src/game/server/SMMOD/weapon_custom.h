@@ -14,7 +14,8 @@ public:
 	CWeaponCustom();
 
 	DECLARE_SERVERCLASS();
-
+	
+	const FileWeaponInfo_t	&GetWpnData( void ) const;
 	void	Precache( void );
 	void	AddViewKick( void );
 	void	ShootBullets( bool isPrimary = true, bool usePrimaryAmmo = true );
@@ -54,8 +55,8 @@ public:
 	void FireNPCPrimaryAttack( CBaseCombatCharacter *pOperator, Vector &vecShootOrigin, Vector &vecShootDir );
 	void Operator_ForceNPCFire( CBaseCombatCharacter  *pOperator, bool bSecondary );
 	void Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
-	DECLARE_ACTTABLE();
 	protected: //Why did I not put this in? I have no idea...
 		CHandle<CMissile>	m_hMissile;
+		FileWeaponInfo_t *m_pCustomWeaponInfo;
 };
 #endif	//WEAPONCUSTOM_H

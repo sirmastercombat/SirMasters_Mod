@@ -10,7 +10,13 @@
 #include "filesystem.h"
 #include "utldict.h"
 #include "ammodef.h"
-
+#if defined(CLIENT_DLL)
+	#include "hl2/c_basehlcombatweapon.h"
+	#include "SMMOD/c_weapon_custom.h"
+	#include "c_baseentity.h"
+#else
+	#include "SMMOD/weapon_custom.h"
+#endif
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -160,11 +166,94 @@ void ResetFileWeaponInfoDatabase( void )
 }
 #endif
 
+#ifdef CLIENT_DLL
+
+
+#define CWeaponCustom C_WeaponCustom 
+static C_BaseEntity *CCHL2MPScriptedWeaponFactory( void )
+{
+	return static_cast< C_BaseEntity * >( new CWeaponCustom );
+};
+#endif
+
+#ifndef CLIENT_DLL
+static CUtlDict< CEntityFactory<CWeaponCustom>*, unsigned short > m_WeaponFactoryDatabase;
+#endif
+
+void RegisterScriptedWeapon( const char *className )
+{
+#ifdef CLIENT_DLL
+	if ( GetClassMap().FindFactory( className ) )
+	{
+		return;
+	}
+		GetClassMap().Add( className, "CWeaponCustom", sizeof( CWeaponCustom ),
+		&CCHL2MPScriptedWeaponFactory, true );
+	//GetClassMap().Add( className, "CWeaponCustom", sizeof( C_HLSelectFireMachineGun));
+#else
+	if ( EntityFactoryDictionary()->FindFactory( className ) )
+	{
+		return;
+	}
+
+	unsigned short lookup = m_WeaponFactoryDatabase.Find( className );
+	if ( lookup != m_WeaponFactoryDatabase.InvalidIndex() )
+	{
+		return;
+	}
+
+	// Andrew; This fixes months worth of pain and anguish.
+	CEntityFactory<CWeaponCustom> *pFactory = new CEntityFactory<CWeaponCustom>( className );
+
+	lookup = m_WeaponFactoryDatabase.Insert( className, pFactory );
+	Assert( lookup != m_WeaponFactoryDatabase.InvalidIndex() );
+#endif
+	// BUGBUG: When attempting to precache weapons registered during runtime,
+	// they don't appear as valid registered entities.
+	// static CPrecacheRegister precache_weapon_(&CPrecacheRegister::PrecacheFn_Other, className);
+}
+void InitCustomWeapon( )
+{
+		FileFindHandle_t findHandle; // note: FileFINDHandle
+
+	const char *pFilename = filesystem->FindFirstEx( "scripts/weapon_custom/*.txt", "MOD", &findHandle );
+	while (pFilename)
+	{
+		Msg("%s added to custom weapons!\n",pFilename);
+
+		#if !defined(CLIENT_DLL)
+		//	CEntityFactory<CWeaponCustom> weapon_custom( pFilename );
+		//	UTIL_PrecacheOther(pFilename);
+		#endif
+		char fileBase[512] = "";
+		Q_FileBase( pFilename, fileBase, sizeof(fileBase) );
+		RegisterScriptedWeapon(fileBase);
+		//CEntityFactory<CWeaponCustom>(CEntityFactory<CWeaponCustom> &);
+		//LINK_ENTITY_TO_CLASS2(pFilename,CWeaponCustom);
+
+			WEAPON_FILE_INFO_HANDLE tmp;
+		#ifdef CLIENT_DLL
+			if ( ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp ) )
+			{
+				gWR.LoadWeaponSprites( tmp, true );
+			}
+		#else
+			ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp );
+		#endif
+
+
+		pFilename = filesystem->FindNext( findHandle );
+	}
+ 
+	filesystem->FindClose( findHandle );
+
+}
 void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned char *pICEKey )
 {
+
 	if ( m_WeaponInfoDatabase.Count() )
 		return;
-
+		InitCustomWeapon( );
 	KeyValues *manifest = new KeyValues( "weaponscripts" );
 	if ( manifest->LoadFromFile( filesystem, "scripts/weapon_manifest.txt", "GAME" ) )
 	{
@@ -292,8 +381,7 @@ bool ReadWeaponDataFromFileForSlot( IFileSystem* filesystem, const char *szWeapo
 		false
 #endif
 		);
-
-	if ( !pKV )
+	if ( !pKV ) //If it failed even after the custom weapon check, then don't read it
 		return false;
 
 	pFileInfo->Parse( pKV, szWeaponName );

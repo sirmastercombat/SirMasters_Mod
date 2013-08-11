@@ -61,7 +61,7 @@
       <AdditionalOptions> /MP</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_mod_episodic;..\..\thirdparty\protobuf-2.3.0\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;..\..\game\shared\episodic;.\hl2;.\episodic</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=server;RAD_TELEMETRY_DISABLED;COMPILER_MSVC32;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;VPCGAMECAPS=EPISODIC;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\game\server;_DLL_EXT=.dll;VPCGAME=episodic</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=server;RAD_TELEMETRY_DISABLED;COMPILER_MSVC32;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;VPCGAMECAPS=VALVE;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\game\server;_DLL_EXT=.dll;VPCGAME=valve</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -150,7 +150,7 @@ exit 1
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_mod_episodic;..\..\thirdparty\protobuf-2.3.0\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;..\..\game\shared\episodic;.\hl2;.\episodic</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=server;RAD_TELEMETRY_DISABLED;COMPILER_MSVC32;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;VPCGAMECAPS=EPISODIC;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\game\server;_DLL_EXT=.dll;VPCGAME=episodic</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=server;RAD_TELEMETRY_DISABLED;COMPILER_MSVC32;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;VPCGAMECAPS=VALVE;PROJECTDIR=C:\SourceSDK.Source_Code\SirMasters_Mod\src\game\server;_DLL_EXT=.dll;VPCGAME=valve</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -808,6 +808,11 @@ exit 1
     <ClInclude Include="hl2\grenade_homer.h" />
     <ClInclude Include="hl2\grenade_pathfollower.h" />
     <ClInclude Include="hl2\weapon_flaregun.h" />
+    <ClInclude Include="..\..\game\server\HLSS\npc_aliencontroller.h" />
+    <ClInclude Include="..\..\game\server\HLSS\npc_aliengrunt.h" />
+    <ClInclude Include="..\..\game\server\HLSS\weapon_bee.h" />
+    <ClInclude Include="..\..\game\server\HLSS\weapon_fireball.h" />
+    <ClInclude Include="..\..\game\server\SMMOD\mapadd.h" />
     <ClInclude Include="plasma.h" />
     <ClInclude Include="smoke_trail.h" />
     <ClInclude Include="smokestack.h" />
@@ -1425,10 +1430,15 @@ exit 1
     <ClCompile Include="hl2\vehicle_apc.cpp" />
     <ClCompile Include="hl2\weapon_cguard.cpp" />
     <ClCompile Include="hl2\weapon_flaregun.cpp" />
+    <ClCompile Include="..\..\game\server\HLSS\npc_aliencontroller.cpp" />
+    <ClCompile Include="..\..\game\server\HLSS\npc_aliengrunt.cpp" />
+    <ClCompile Include="..\..\game\server\HLSS\weapon_bee.cpp" />
+    <ClCompile Include="..\..\game\server\HLSS\weapon_fireball.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\game\server\SMMOD\mapadd.cpp" />
     <ClCompile Include="basetempentity.cpp" />
     <ClCompile Include="event_tempentity_tester.cpp" />
     <ClCompile Include="movie_explosion.cpp" />

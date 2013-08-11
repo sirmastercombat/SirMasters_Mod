@@ -1,7 +1,7 @@
 [vpc crc file version 2]
 0f234c44 C:\SourceSDK.Source_Code\SirMasters_Mod\src\devtools\bin\vpc.exe
-_Nc_/vpcgame:episodic_
-cfa6f975 server_episodic.vpc
+_Nc_/vpcgame:valve_
+252f6400 server_episodic.vpc
 1a2cf65b ..\..\game\server\server_base.vpc
 413a9105 ..\..\vpc_scripts\source_dll_base.vpc
 0426f692 ..\..\vpc_scripts\source_base.vpc

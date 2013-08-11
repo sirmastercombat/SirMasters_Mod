@@ -1,0 +1,12 @@
+[vpc crc file version 2]
+0f234c44 C:\SourceSDK.Source_Code\SirMasters_Mod\src\devtools\bin\vpc.exe
+_Nc_/vpcgame:valve_
+d62c3354 vice.vpc
+b6915bda ..\..\vpc_scripts\source_exe_con_win32_base.vpc
+bd6c44bb ..\..\vpc_scripts\source_exe_win_win32_base.vpc
+351c8228 ..\..\vpc_scripts\version.vpc
+846102f0 ..\..\vpc_scripts\loadaddress.vpc
+64b93f0a ..\..\vpc_scripts\source_exe_win_win32_debug.vpc
+d0bc9afa ..\..\vpc_scripts\source_exe_win_win32_release.vpc
+ba87b758 ..\..\vpc_scripts\source_win32_base.vpc
+48b3bb32 ..\..\vpc_scripts\definitions\win32_2010.def

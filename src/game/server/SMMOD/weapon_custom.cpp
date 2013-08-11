@@ -26,11 +26,14 @@
 
 extern ConVar    sk_plr_dmg_smg1_grenade;	
 
-IMPLEMENT_SERVERCLASS_ST(CWeaponCustom, DT_WeaponCustom)
-END_SEND_TABLE()
 
-LINK_ENTITY_TO_CLASS( weapon_custom1, CWeaponCustom ); //I give up.
-PRECACHE_WEAPON_REGISTER(weapon_custom1);
+const FileWeaponInfo_t &CWeaponCustom::GetWpnData( void ) const
+{
+
+	return *m_pCustomWeaponInfo;
+}
+//LINK_ENTITY_TO_CLASS( weapon_custom1, CWeaponCustom ); //I give up.
+//PRECACHE_WEAPON_REGISTER(weapon_custom1);
 
 //LINK_ENTITY_TO_CLASS( weapon_custom2, CWeaponCustom );
 //PRECACHE_WEAPON_REGISTER(weapon_custom2);
@@ -41,63 +44,13 @@ PRECACHE_WEAPON_REGISTER(weapon_custom1);
 //LINK_ENTITY_TO_CLASS( weapon_custom4, CWeaponCustom );
 //PRECACHE_WEAPON_REGISTER(weapon_custom4);
 //LINK_ENTITY_TO_CLASS_CUSTOM("weapon_ak47",CWeaponCustom)
+
+IMPLEMENT_SERVERCLASS_ST(CWeaponCustom, DT_WeaponCustom)
+END_SEND_TABLE()
+
 BEGIN_DATADESC( CWeaponCustom )
 	DEFINE_FIELD( m_hMissile,			FIELD_EHANDLE ),
 END_DATADESC()
-
-acttable_t	CWeaponCustom::m_acttable[] = 
-{
-	{ ACT_RANGE_ATTACK1,			ACT_RANGE_ATTACK_SMG1,			true },
-	{ ACT_RELOAD,					ACT_RELOAD_SMG1,				true },
-	{ ACT_IDLE,						ACT_IDLE_SMG1,					true },
-	{ ACT_IDLE_ANGRY,				ACT_IDLE_ANGRY_SMG1,			true },
-
-	{ ACT_WALK,						ACT_WALK_RIFLE,					true },
-	{ ACT_WALK_AIM,					ACT_WALK_AIM_RIFLE,				true  },
-	
-// Readiness activities (not aiming)
-	{ ACT_IDLE_RELAXED,				ACT_IDLE_SMG1_RELAXED,			false },//never aims
-	{ ACT_IDLE_STIMULATED,			ACT_IDLE_SMG1_STIMULATED,		false },
-	{ ACT_IDLE_AGITATED,			ACT_IDLE_ANGRY_SMG1,			false },//always aims
-
-	{ ACT_WALK_RELAXED,				ACT_WALK_RIFLE_RELAXED,			false },//never aims
-	{ ACT_WALK_STIMULATED,			ACT_WALK_RIFLE_STIMULATED,		false },
-	{ ACT_WALK_AGITATED,			ACT_WALK_AIM_RIFLE,				false },//always aims
-
-	{ ACT_RUN_RELAXED,				ACT_RUN_RIFLE_RELAXED,			false },//never aims
-	{ ACT_RUN_STIMULATED,			ACT_RUN_RIFLE_STIMULATED,		false },
-	{ ACT_RUN_AGITATED,				ACT_RUN_AIM_RIFLE,				false },//always aims
-
-// Readiness activities (aiming)
-	{ ACT_IDLE_AIM_RELAXED,			ACT_IDLE_SMG1_RELAXED,			false },//never aims	
-	{ ACT_IDLE_AIM_STIMULATED,		ACT_IDLE_AIM_RIFLE_STIMULATED,	false },
-	{ ACT_IDLE_AIM_AGITATED,		ACT_IDLE_ANGRY_SMG1,			false },//always aims
-
-	{ ACT_WALK_AIM_RELAXED,			ACT_WALK_RIFLE_RELAXED,			false },//never aims
-	{ ACT_WALK_AIM_STIMULATED,		ACT_WALK_AIM_RIFLE_STIMULATED,	false },
-	{ ACT_WALK_AIM_AGITATED,		ACT_WALK_AIM_RIFLE,				false },//always aims
-
-	{ ACT_RUN_AIM_RELAXED,			ACT_RUN_RIFLE_RELAXED,			false },//never aims
-	{ ACT_RUN_AIM_STIMULATED,		ACT_RUN_AIM_RIFLE_STIMULATED,	false },
-	{ ACT_RUN_AIM_AGITATED,			ACT_RUN_AIM_RIFLE,				false },//always aims
-//End readiness activities
-
-	{ ACT_WALK_AIM,					ACT_WALK_AIM_RIFLE,				true },
-	{ ACT_WALK_CROUCH,				ACT_WALK_CROUCH_RIFLE,			true },
-	{ ACT_WALK_CROUCH_AIM,			ACT_WALK_CROUCH_AIM_RIFLE,		true },
-	{ ACT_RUN,						ACT_RUN_RIFLE,					true },
-	{ ACT_RUN_AIM,					ACT_RUN_AIM_RIFLE,				true },
-	{ ACT_RUN_CROUCH,				ACT_RUN_CROUCH_RIFLE,			true },
-	{ ACT_RUN_CROUCH_AIM,			ACT_RUN_CROUCH_AIM_RIFLE,		true },
-	{ ACT_GESTURE_RANGE_ATTACK1,	ACT_GESTURE_RANGE_ATTACK_SMG1,	true },
-	{ ACT_RANGE_ATTACK1_LOW,		ACT_RANGE_ATTACK_SMG1_LOW,		true },
-	{ ACT_COVER_LOW,				ACT_COVER_SMG1_LOW,				false },
-	{ ACT_RANGE_AIM_LOW,			ACT_RANGE_AIM_SMG1_LOW,			false },
-	{ ACT_RELOAD_LOW,				ACT_RELOAD_SMG1_LOW,			false },
-	{ ACT_GESTURE_RELOAD,			ACT_GESTURE_RELOAD_SMG1,		true },
-};
-
-IMPLEMENT_ACTTABLE(CWeaponCustom);
 
 //=========================================================
 CWeaponCustom::CWeaponCustom( )
@@ -106,6 +59,17 @@ CWeaponCustom::CWeaponCustom( )
 	m_fMaxRange1		= 1400;
 
 	m_bAltFiresUnderwater = false;
+	m_pCustomWeaponInfo = new FileWeaponInfo_t();
+		
+	char sz[128];
+	Q_snprintf( sz, sizeof( sz ), "scripts/weapon_custom/%s", this->m_iClassname );
+	KeyValues *pKV  = ReadEncryptedKVFile( filesystem, sz, NULL, false ); //CUSTOM WEAPONS DO NOT HAVE CTX FILES!
+	char szName[128];
+	Q_snprintf( szName, sizeof( szName ), "%s", this->m_iClassname );
+	m_pCustomWeaponInfo->Parse( pKV, szName );
+
+	pKV->deleteThis();
+
 }
 
 //-----------------------------------------------------------------------------
@@ -113,7 +77,6 @@ CWeaponCustom::CWeaponCustom( )
 //-----------------------------------------------------------------------------
 void CWeaponCustom::Precache( void )
 {
-	UTIL_PrecacheOther("grenade_ar2");
 
 	BaseClass::Precache();
 }
