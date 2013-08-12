@@ -107,6 +107,9 @@ BEGIN_DATADESC( CBaseCombatCharacter )
 	DEFINE_FIELD( m_bForceServerRagdoll, FIELD_BOOLEAN ),
 	DEFINE_FIELD( m_bPreventWeaponPickup, FIELD_BOOLEAN ),
 
+	DEFINE_INPUTFUNC( FIELD_VOID, "EnableGlow", InputEnableGlow ),
+	DEFINE_INPUTFUNC( FIELD_VOID, "DisableGlow", InputDisableGlow ),
+
 	DEFINE_INPUTFUNC( FIELD_VOID, "KilledNPC", InputKilledNPC ),
 	DEFINE_INPUTFUNC( FIELD_VOID, "SetFov", InputSetFov ),
 END_DATADESC()

@@ -494,8 +494,8 @@ void IN_Attack3Down( const CCommand &args ) { KeyDown(&in_attack3, args[1] );}
 void IN_Attack3Up( const CCommand &args ) { KeyUp(&in_attack3, args[1] );}
 void IN_KickDown( const CCommand &args ) { KeyDown(&in_kick, args[1] );}
 void IN_KickUp( const CCommand &args ) { KeyUp(&in_kick, args[1] );}
-void IN_IronsightDown( const CCommand &args ) { KeyDown(&in_kick, args[1] );}
-void IN_IronsightUp( const CCommand &args ) { KeyUp(&in_kick, args[1] );}
+void IN_IronsightDown( const CCommand &args ) { KeyDown(&in_ironsight, args[1] );}
+void IN_IronsightUp( const CCommand &args ) { KeyUp(&in_ironsight, args[1] );}
 
 
 void IN_DuckToggle( const CCommand &args ) 

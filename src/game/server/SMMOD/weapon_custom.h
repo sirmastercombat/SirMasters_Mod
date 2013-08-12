@@ -58,4 +58,35 @@ public:
 		CHandle<CMissile>	m_hMissile;
 };
 
+#define CustomWeaponAdd( num )										\
+class CWeaponCustom##num : public CWeaponCustom						\
+{																	\
+	DECLARE_DATADESC();												\
+	public:															\
+	DECLARE_CLASS( CWeaponCustom##num, CWeaponCustom );				\
+	CWeaponCustom##num() {};										\
+	DECLARE_SERVERCLASS();											\
+};																	\
+IMPLEMENT_SERVERCLASS_ST(CWeaponCustom##num, DT_WeaponCustom##num)	\
+END_SEND_TABLE()													\
+BEGIN_DATADESC( CWeaponCustom##num )										\
+END_DATADESC()														\
+LINK_ENTITY_TO_CLASS( weapon_custom##num, CWeaponCustom##num );		\
+PRECACHE_WEAPON_REGISTER(weapon_custom##num);
+
+#define CustomWeaponNamedAdd( customname )										\
+class CWeaponCustomNamed##customname : public CWeaponCustom						\
+{																	\
+	DECLARE_DATADESC();												\
+	public:															\
+	DECLARE_CLASS( CWeaponCustomNamed##customname, CWeaponCustom );				\
+	CWeaponCustomNamed##customname() {};										\
+	DECLARE_SERVERCLASS();											\
+};																	\
+IMPLEMENT_SERVERCLASS_ST(CWeaponCustomNamed##customname, DT_WeaponCustomNamed##customname)	\
+END_SEND_TABLE()													\
+BEGIN_DATADESC( CWeaponCustomNamed##customname )										\
+END_DATADESC()														\
+LINK_ENTITY_TO_CLASS( weapon_##customname, CWeaponCustomNamed##customname );		\
+PRECACHE_WEAPON_REGISTER(weapon_##customname);
 #endif	//WEAPONCUSTOM_H

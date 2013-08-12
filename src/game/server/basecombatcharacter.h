@@ -289,6 +289,8 @@ public:
 	// Killed a character
 	void InputKilledNPC( inputdata_t &inputdata );
 	void InputSetFov( inputdata_t &inputdata );
+	void InputEnableGlow( inputdata_t &inputdata ) { AddGlowEffect(); };
+	void InputDisableGlow( inputdata_t &inputdata ) { RemoveGlowEffect(); };
 	virtual void OnKilledNPC( CBaseCombatCharacter *pKilled ) {}; 
 
 	// Exactly one of these happens immediately after killed (gibbed may happen later when the corpse gibs)

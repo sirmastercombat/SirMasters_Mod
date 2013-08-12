@@ -3544,6 +3544,9 @@
     <ClCompile Include="SMMOD\weapon_custom.cpp">
       <Filter>Source Files\SMMOD DLL</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\SMMOD\shdef_customweapons.cpp">
+      <Filter>Source Files\SMMOD DLL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

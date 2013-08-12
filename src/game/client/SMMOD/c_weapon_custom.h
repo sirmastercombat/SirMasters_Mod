@@ -14,8 +14,6 @@ public:
 	DECLARE_CLIENTCLASS();									
 	C_WeaponCustom() {
 	};	
-	const FileWeaponInfo_t	&GetWpnData( void ) const;
-	FileWeaponInfo_t *m_pCustomWeaponInfo;
 private:												
 //	C_WeaponCustom( const C_WeaponCustom & );	
 };				

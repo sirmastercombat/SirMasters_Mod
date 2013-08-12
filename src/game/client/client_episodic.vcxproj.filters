@@ -3454,6 +3454,9 @@
     <ClCompile Include="SMMOD\tne_RenderTargets.cpp">
       <Filter>Source Files\SMMOD</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\SMMOD\shdef_customweapons.cpp">
+      <Filter>Source Files\SMMOD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
