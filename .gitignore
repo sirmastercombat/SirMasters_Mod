@@ -27,7 +27,7 @@ local.properties
 
 # PDT-specific
 .buildpath
-
+src\game\*\Release_mod\CL.*
 
 #################
 ## Visual Studio
